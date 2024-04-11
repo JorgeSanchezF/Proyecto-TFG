@@ -6,13 +6,15 @@ si la sesion esta iniciada
 */
 $textoInicioSesion = '';
 $enlaceSesion = '';
-
+$claseSesion = '';
 if ($_SESSION["usuario"] != null) {
     $textoInicioSesion = 'Cerrar Sesión';
     $enlaceSesion = '/cerrar-sesion';
+    $claseSesion = 'sign-out';
 } else {
     $textoInicioSesion = 'Inicia Sesión';
     $enlaceSesion = '/login';
+    $claseSesion = 'sign-in';
 }
 ?>
 
@@ -33,14 +35,14 @@ if ($_SESSION["usuario"] != null) {
 <body>
     <header>
         <div class="logo">
-            <a href="/"><img src="logo.png" alt="Logo"></a>
+            <a class="logo" href="/"><img class="logo" src="assets/img/logo.png" alt="Logo"></a>
         </div>
         <nav>
             <a class="enlace-menu" href="/catalogo/index">Catálogo</a>
             <a class="enlace-menu" href="/estadisticas/index">Estadísticas</a>
             <a class="enlace-menu" href="/perfil/index">Perfil</a>
         </nav>
-        <a href=<?php echo $enlaceSesion ?> class="sign-in"><?php echo $textoInicioSesion ?></a>
+        <a href=<?php echo $enlaceSesion ?> class=<?php echo $claseSesion ?>><?php echo $textoInicioSesion ?></a>
     </header>
     <main>
         <div id="presentacion">
@@ -55,6 +57,7 @@ if ($_SESSION["usuario"] != null) {
                     siguiente nivel.</p>
 
             </div>
+            <div></div>
     </main>
     <footer></footer>
 </body>

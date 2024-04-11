@@ -5,14 +5,22 @@ main {
 }
 
 #presentacion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
 }
 
 #fondo-index {
-    width: 100%;
+    width: 85%;
+    align-self: center;
 
 }
 
-#texto-superior {}
+#texto-superior {
+    color: white;
+}
 
-#texto-inferior {}
+#texto-inferior {
+    color: white;
+}

@@ -1,14 +1,28 @@
 html {
     font-family: Verdana;
+    background-color: #051622;
 }
 
 header {
-    background-color: #333;
-    height: 60px;
+    background-color: #1ba098;
+    height: 14.535vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1%;
+}
+
+.logo {
+    height: 12.535vh;
+    width: 24vh;
+    margin-left: 2%;
+    border-radius: 2px;
+}
+
+.logo:hover {
+    box-shadow: 6px 6px black;
+
 }
 
 nav {
@@ -32,10 +46,23 @@ nav li {
 nav a {
     color: #fff;
     text-decoration: none;
+    padding: 5px 10px;
+
 }
 
-.enlace-menu :hover {
-    background-color: lightskyblue;
+.enlace-menu {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 20px 30px;
+}
+
+.enlace-menu:hover {
+    color: black;
+    background-color: #deb992;
+    border-radius: 3px;
+    box-shadow: 6px 6px black;
+
 }
 
 .sign-in {
@@ -44,4 +71,26 @@ nav a {
     padding: 5px 10px;
     border-radius: 5px;
     text-decoration: none;
+    text-align: center;
+    margin-right: 2%;
+}
+
+.sign-in:hover {
+    box-shadow: 6px 6px black;
+
+}
+
+.sign-out {
+    background-color: #af4c4c;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    margin-right: 2%;
+}
+
+.sign-out:hover {
+    box-shadow: 6px 6px black;
+
 }

@@ -1,4 +1,4 @@
-CREATE DATABASE coleccionistadigitaldb;
+CREATE DATABASE if not exists coleccionistadigitaldb;
 use coleccionistadigitaldb;
 
 create table if not EXISTS Juego(
@@ -6,6 +6,7 @@ id int primary key AUTO_INCREMENT,
 nombre VARCHAR(50) not null,
 precio decimal(5, 2) not null,
 descripcion VARCHAR(200) not null,
+plataforma VARCHAR(20) not null,
 duracion int not null);
 
 create table if not EXISTS Etiqueta(
@@ -49,6 +50,7 @@ juego_id INT,
 FOREIGN KEY (usuario_id) REFERENCES Usuario(id),
 FOREIGN KEY (juego_id) REFERENCES Juego(id)
 );
+
 
 /*INSERCIONES*/
 /* INSERTADO
