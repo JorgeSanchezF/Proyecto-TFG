@@ -62,8 +62,20 @@ class Router
     {
         # Almaceno el path de la url
         $path = parse_url($url)['path'];
-        // var_dump($path);
+        // var_dump(parse_url($url));
 
+        $query = null;
+
+        # Comprobar si existen variables en la url
+        if (isset(parse_url($url)['query'])) {
+            # Obtiene la cadena de la consulta de la URL
+            $query = parse_url($url, PHP_URL_QUERY);
+
+            # Convertir la cadena de consulta (todas las variables) en un array clave-valor
+            parse_str($query, $query);
+        }
+        // var_dump($query);
+        // exit();
         # Seccionar el $path en varios strings
         $path2 = explode("/", $path);
 
@@ -82,7 +94,7 @@ class Router
         // var_dump('La function que se va a ejecutar es: '. $function);
         // var_dump($this->rutas);
         // exit();
-        return call_user_func($clase . '::' . $function);
+        return call_user_func($clase . '::' . $function, $query);
     }
 }
 ?>

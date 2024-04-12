@@ -9,18 +9,31 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    position: relative;
+    text-align: center;
 }
 
 #fondo-index {
-    width: 85%;
+    max-width: 85%;
     align-self: center;
-
+    border: 5px solid #1ba098;
+    border-radius: 20px;
 }
 
 #texto-superior {
     color: white;
+    text-align: center;
+    position: absolute;
+    top: 25%;
+    width: 90%;
+    max-width: 800px
 }
 
 #texto-inferior {
     color: white;
+    text-align: center;
+    position: absolute;
+    top: 65%;
+    width: 90%;
+    max-width: 800px
 }

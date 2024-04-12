@@ -1,3 +1,10 @@
+/* Estilos generales */
+
+/* Esquema de colores:
+    #051622
+    #1ba098
+    #deb992
+*/
 html {
     font-family: Verdana;
     background-color: #051622;
@@ -14,14 +21,15 @@ header {
 }
 
 .logo {
-    height: 12.535vh;
-    width: 24vh;
+    width: 5.737vw;
     margin-left: 2%;
-    border-radius: 2px;
+
 }
 
 .logo:hover {
-    box-shadow: 6px 6px black;
+    /* box-shadow: 6px 6px black; */
+    background-color: #deb992;
+    border-radius: 3px;
 
 }
 
@@ -93,4 +101,27 @@ nav a {
 .sign-out:hover {
     box-shadow: 6px 6px black;
 
+}
+
+footer {
+    margin-top: 2%;
+    background-color: #1ba098;
+    color: #deb992;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #deb992;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: white;
+}
+
+.redes {
+    justify-content: space-between;
+    margin-bottom: 2%;
 }

@@ -1,13 +1,15 @@
 <?php
 // IMPORTACIONES DE CONTROLADORES
-require_once "Router.php";
-require_once "controllers/IndexController.php";
+require_once 'autoload.php';
+require_once 'Router.php';
+
 
 session_start();
-
+$_SESSION['usuario'] = '';
 $route = new Router();
 
-$route->get('/', [IndexController::class, 'index']);
+$route->get('/', [IndexController::class, 'index'])
+    ->get('/catalogo', [CatalogoController::class, 'index']);
 
 // $route->get('/login', [AuthController::class, 'login'])
 //       ->get('/register', [AuthController::class, 'register'])
