@@ -7,15 +7,22 @@ si la sesion esta iniciada
 $textoInicioSesion = '';
 $enlaceSesion = '';
 $claseSesion = '';
-if ($_SESSION["usuario"] != null) {
+
+if (empty($_SESSION['usuario'])) {
     $textoInicioSesion = 'Cerrar Sesión';
-    $enlaceSesion = '/cerrar-sesion';
+    $enlaceSesion = 'index/logout';
     $claseSesion = 'sign-out';
 } else {
     $textoInicioSesion = 'Inicia Sesión';
-    $enlaceSesion = '/login';
+    $enlaceSesion = 'index/login';
     $claseSesion = 'sign-in';
 }
+
+// if ($_SESSION["usuario"] != null) {
+//     $textoInicioSesion = 'Cerrar Sesión';
+//     $enlaceSesion = '/cerrar-sesion';
+//     $claseSesion = 'sign-out';
+// }
 ?>
 
 <!DOCTYPE html>

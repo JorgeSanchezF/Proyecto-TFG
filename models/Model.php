@@ -7,8 +7,7 @@ interface Model
 
     public function store($datos);
 
-    public function updateById($id);
+    public function updateById($id, $datos);
 
     public function destroyById($id);
 }
-?>

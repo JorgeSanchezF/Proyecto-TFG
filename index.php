@@ -1,5 +1,5 @@
 <?php
-// IMPORTACIONES DE CONTROLADORES
+// IMPORTACIONES DE CONTROLADORES MEDIANTE autoload.php
 require_once 'autoload.php';
 require_once 'Router.php';
 
@@ -9,19 +9,10 @@ $_SESSION['usuario'] = '';
 $route = new Router();
 
 $route->get('/', [IndexController::class, 'index'])
-    ->get('/catalogo', [CatalogoController::class, 'index']);
-
-// $route->get('/login', [AuthController::class, 'login'])
-//       ->get('/register', [AuthController::class, 'register'])
-//       ->get('/home', [AuthController::class, 'home'])
-//       ->get('/dashboard', [AuthController::class, 'dashboard'])
-//       ->get('/logout', [AuthController::class, 'logout'])
-//       ->get('/destroy-perfil', [PerfilController::class, 'destroy'])
-//       ->get('/edit-perfil', [PerfilController::class, 'edit'])
-//       ->post('update-perfil', [PerfilController::class, 'update'])
-//       ->post('/doRegister', [AuthController::class, 'doRegister'])
-//       ->post('/doLogin', [AuthController::class, 'doLogin']);
-
-
+    ->get('/catalogo', [CatalogoController::class, 'index'])
+    ->get('/login', [AuthController::class, 'login'])
+    ->get('/register', [AuthController::class, 'register'])
+    ->post('/doLogin', [AuthController::class, 'doLogin'])
+    ->post('/doRegister', [AuthController::class, 'doRegister']);
 
 $route->resolver_ruta($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

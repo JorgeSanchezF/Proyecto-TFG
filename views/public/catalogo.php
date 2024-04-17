@@ -4,16 +4,19 @@
 Comprobación para cambiar el texto de el enlace de inicio de sesión a el nombre de usuario
 si la sesion esta iniciada
 */
+
+
 $textoInicioSesion = '';
 $enlaceSesion = '';
 $claseSesion = '';
-if ($_SESSION["usuario"] != null) {
+
+if (empty($_SESSION['usuario'])) {
     $textoInicioSesion = 'Cerrar Sesión';
-    $enlaceSesion = '/cerrar-sesion';
+    $enlaceSesion = 'index/logout';
     $claseSesion = 'sign-out';
 } else {
     $textoInicioSesion = 'Inicia Sesión';
-    $enlaceSesion = '/login';
+    $enlaceSesion = 'index/login';
     $claseSesion = 'sign-in';
 }
 ?>
@@ -32,8 +35,8 @@ if ($_SESSION["usuario"] != null) {
 <body>
     <header>
         <div class="logo">
-            <a class="logo" href="http://localhost:8081/Proyecto%20TFG/"><img class="logo"
-                    src="../assets/img/logo.png" alt="Logo"></a>
+            <a class="logo" href="http://localhost:8081/Proyecto%20TFG/"><img class="logo" src="../assets/img/logo.png"
+                    alt="Logo"></a>
         </div>
         <nav>
             <a class="enlace-menu" href="catalogo">Catálogo</a>

@@ -4,7 +4,7 @@ class CatalogoController implements Controller
 {
     public static function index()
     {
-        include 'views/catalogo/index.php';
+        include 'views/public/catalogo.php';
     }
     public static function create()
     {

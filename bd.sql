@@ -73,3 +73,9 @@ insert into etiqueta(nombre)value("Casual");
 insert into etiqueta(nombre)value("Deportes");
 insert into etiqueta(nombre)value("Disparos");
 */
+
+select * from usuario;
+insert into usuario (correo,apodo,contraseña,rol_id)values("simba@gmail.com","simba",md5(1234),2);
+DELETE from usuario where id=3;
+UPDATE usuario set rol_id=2 where id=4;
+select * from rol;
