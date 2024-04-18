@@ -5,7 +5,7 @@ require_once 'Router.php';
 
 
 session_start();
-$_SESSION['usuario'] = '';
+
 $route = new Router();
 
 $route->get('/', [IndexController::class, 'index'])

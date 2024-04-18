@@ -4,7 +4,8 @@
 Comprobación para cambiar el texto de el enlace de inicio de sesión a el nombre de usuario
 si la sesion esta iniciada
 */
-
+// var_dump($_SESSION);
+// exit;
 
 $textoInicioSesion = '';
 $enlaceSesion = '';

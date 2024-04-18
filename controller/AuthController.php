@@ -67,16 +67,10 @@ class AuthController
     }
     public static function logout()
     {
-        var_dump($_SESSION['usuario']);
-        exit;
-        if ($_SESSION['user'] != null) {
-            session_destroy();
-            header('Location: login');
-            exit;
-        } else {
-            header('Location: catalogo');
-            exit;
-        }
 
+        unset($_SESSION['usuario']);
+        header('Location: login');
+        exit;
     }
+
 }

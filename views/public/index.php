@@ -15,7 +15,7 @@ if (empty($_SESSION['usuario'])) {
     $claseSesion = 'sign-in';
 } else {
     $textoInicioSesion = 'Cerrar Sesión';
-    $enlaceSesion = '/index/logout';
+    $enlaceSesion = 'index/logout';
     $claseSesion = 'sign-out';
 }
 ?>
