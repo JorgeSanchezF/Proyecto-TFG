@@ -16,8 +16,10 @@ class AuthController
         $usuario = new Usuario();
 
         $user_log = $usuario->findByEmail($email)->fetch();
-
-
+        // var_dump($email);
+        // var_dump($contraseña);
+        // var_dump($user_log);
+        // exit;
 
         if (password_verify($contraseña, $user_log['contraseña'])) {
             $_SESSION['usuario'] = $user_log;

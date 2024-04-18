@@ -12,7 +12,7 @@
 <body>
 
     <main class="container mt-5">
-        <a href="../">Volver</a>
+        <a href="../" class="btn btn-secondary mb-3">Volver</a>
         <br>
         <a href="register" class="btn btn-primary">¿No tienes cuenta?</a>
         <form method="POST" class="formulario-inicio" action="doLogin">
