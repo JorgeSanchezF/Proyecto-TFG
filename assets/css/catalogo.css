@@ -1,0 +1,88 @@
+/* #deb992
+#1ba098 */
+
+.card {
+    border: 4px solid #1ba098;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    flex-shrink: 0;
+}
+
+.card-body {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col-md-4 {
+    flex: 0 0 calc(33.3333% - 30px);
+    max-width: calc(33.3333% - 30px);
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 3%;
+}
+
+#plataforma {
+    margin-bottom: 4%;
+}
+
+#añadir-biblioteca {
+
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4%;
+    text-decoration: none;
+    padding: 2%;
+}
+
+@media (max-width: 992px) {
+    .col-md-4 {
+        flex: 0 0 calc(50% - 30px);
+        max-width: calc(50% - 30px);
+    }
+}
+
+@media (max-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}

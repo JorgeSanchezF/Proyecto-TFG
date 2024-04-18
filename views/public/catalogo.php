@@ -31,6 +31,7 @@ if (empty($_SESSION['usuario'])) {
     <title>Catálogo</title>
 
     <link rel="stylesheet" href="../assets/css/general.css">
+    <link rel="stylesheet" href="../assets/css/catalogo.css">
     <script src="https://kit.fontawesome.com/ff01793a80.js" crossorigin="anonymous"></script>
 </head>
 
@@ -47,6 +48,35 @@ if (empty($_SESSION['usuario'])) {
         <a href=<?php echo $enlaceSesion ?> class=<?php echo $claseSesion ?>><?php echo $textoInicioSesion ?></a>
     </header>
     <main>
+        <div class="row">
+            <?php foreach ($juegos as $juego): ?>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="" class="card-img-top" alt="img-<?php echo $juego['nombre']; ?>">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title"><?php echo $juego['nombre']; ?></h5>
+
+
+                            <p class="card-text"><strong>Precio:</strong> $<?php echo $juego['precio']; ?></p>
+
+
+                            <p class="card-text"><strong>Descripción:</strong> <?php echo $juego['descripcion']; ?></p>
+
+
+                            <p class="card-text"><strong>Duración:</strong> <?php echo $juego['duracion']; ?> horas</p>
+
+
+                            <p class="card-text" id="plataforma"><strong>Plataforma:</strong>
+                                <?php echo $juego['plataforma']; ?></p>
+
+                            <a id="añadir-biblioteca" href="">Añadir a biblioteca</a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
 
     </main>
     <footer>
