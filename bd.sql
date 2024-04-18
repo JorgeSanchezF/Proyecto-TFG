@@ -13,7 +13,8 @@ create table if not EXISTS Etiqueta(
 id int primary key AUTO_INCREMENT,
 nombre varchar(20));
 
-create table if not EXISTS juego_etiqueta(
+
+create table if not EXISTS juego_has_etiqueta(
 id int primary key AUTO_INCREMENT,
 juego_id int,
 etiqueta_id int,
@@ -40,42 +41,21 @@ texto VARCHAR(300) not null,
 puntuacion DECIMAL(3, 1) not null, /*puntuación de 1 a 5*/
 duracion int not null, /*almacenada en minutos*/
 usuario_id int not null,
-FOREIGN KEY (usuario_id) REFERENCES Usuario(id)
+juego_id int not null,
+FOREIGN KEY (usuario_id) REFERENCES Usuario(id),
+FOREIGN KEY (juego_id) REFERENCES Juego(id)
 );
 
 create table if not EXISTS Biblioteca(
 id int PRIMARY KEY AUTO_INCREMENT,
 usuario_id int,
-juego_id INT,
-FOREIGN KEY (usuario_id) REFERENCES Usuario(id),
-FOREIGN KEY (juego_id) REFERENCES Juego(id)
+FOREIGN KEY (usuario_id) REFERENCES Usuario(id)
 );
 
-
-/*INSERCIONES*/
-/* INSERTADO
-INSERT INTO rol(nombre)VALUE("administrador");
-INSERT INTO rol(nombre)VALUE("usuario");
-*/
-
-/* NO INSERTADO
-insert into etiqueta(nombre)value("Acción");
-insert into etiqueta(nombre)value("Aventura");
-insert into etiqueta(nombre)value("Rol");
-insert into etiqueta(nombre)value("Estrategia");
-insert into etiqueta(nombre)value("Terror");
-insert into etiqueta(nombre)value("Primera persona");
-insert into etiqueta(nombre)value("Tercera persona");
-insert into etiqueta(nombre)value("Free to play");
-insert into etiqueta(nombre)value("Arcade");
-insert into etiqueta(nombre)value("Simulación");
-insert into etiqueta(nombre)value("Casual");
-insert into etiqueta(nombre)value("Deportes");
-insert into etiqueta(nombre)value("Disparos");
-*/
-
-select * from usuario;
-insert into usuario (correo,apodo,contraseña,rol_id)values("simba@gmail.com","simba",md5(1234),2);
-DELETE from usuario where id=3;
-UPDATE usuario set rol_id=2 where id=4;
-select * from rol;
+CREATE TABLE IF NOT EXISTS biblioteca_has_juego(
+id int PRIMARY KEY AUTO_INCREMENT,
+biblioteca_id int,
+juego_id int,
+FOREIGN KEY (biblioteca_id) REFERENCES Biblioteca(id),
+FOREIGN KEY (juego_id) REFERENCES Juego(id)
+);

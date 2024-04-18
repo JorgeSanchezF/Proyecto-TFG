@@ -4,6 +4,8 @@ class IndexController
 {
     public static function index()
     {
-        include "views/index.php";
+        include 'views/public/index.php';
+
     }
+
 }

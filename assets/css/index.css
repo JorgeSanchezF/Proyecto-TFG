@@ -26,7 +26,8 @@ main {
     position: absolute;
     top: 25%;
     width: 90%;
-    max-width: 800px
+    max-width: 800px;
+    
 }
 
 #texto-inferior {
@@ -35,5 +36,5 @@ main {
     position: absolute;
     top: 65%;
     width: 90%;
-    max-width: 800px
+    max-width: 800px;
 }

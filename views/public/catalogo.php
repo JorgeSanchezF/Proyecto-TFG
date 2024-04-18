@@ -11,13 +11,14 @@ $enlaceSesion = '';
 $claseSesion = '';
 
 if (empty($_SESSION['usuario'])) {
-    $textoInicioSesion = 'Cerrar Sesión';
-    $enlaceSesion = 'index/logout';
-    $claseSesion = 'sign-out';
-} else {
+
     $textoInicioSesion = 'Inicia Sesión';
-    $enlaceSesion = 'index/login';
+    $enlaceSesion = 'login';
     $claseSesion = 'sign-in';
+} else {
+    $textoInicioSesion = 'Cerrar Sesión';
+    $enlaceSesion = 'logout';
+    $claseSesion = 'sign-out';
 }
 ?>
 <!DOCTYPE html>
@@ -35,13 +36,12 @@ if (empty($_SESSION['usuario'])) {
 <body>
     <header>
         <div class="logo">
-            <a class="logo" href="http://localhost:8081/Proyecto%20TFG/"><img class="logo" src="../assets/img/logo.png"
-                    alt="Logo"></a>
+            <a class="logo" href="../"><img class="logo" src="../assets/img/logo.png" alt="Logo"></a>
         </div>
         <nav>
-            <a class="enlace-menu" href="catalogo">Catálogo</a>
-            <a class="enlace-menu" href="estadisticas">Estadísticas</a>
-            <a class="enlace-menu" href="perfil">Perfil</a>
+            <a class="enlace-menu" href="index/catalogo">Catálogo</a>
+            <a class="enlace-menu" href="index/estadisticas">Estadísticas</a>
+            <a class="enlace-menu" href="index/perfil">Perfil</a>
         </nav>
         <a href=<?php echo $enlaceSesion ?> class=<?php echo $claseSesion ?>><?php echo $textoInicioSesion ?></a>
     </header>

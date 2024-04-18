@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +12,7 @@
 <body>
 
     <main class="container mt-5">
-        <button class="btn btn-secondary mb-3" onclick="history.back()">Atrás</button>
+        <a href="../">Volver</a>
         <br>
         <a href="register" class="btn btn-primary">¿No tienes cuenta?</a>
         <form method="POST" class="formulario-inicio" action="doLogin">

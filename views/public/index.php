@@ -9,20 +9,15 @@ $enlaceSesion = '';
 $claseSesion = '';
 
 if (empty($_SESSION['usuario'])) {
-    $textoInicioSesion = 'Cerrar Sesión';
-    $enlaceSesion = 'index/logout';
-    $claseSesion = 'sign-out';
-} else {
+
     $textoInicioSesion = 'Inicia Sesión';
     $enlaceSesion = 'index/login';
     $claseSesion = 'sign-in';
+} else {
+    $textoInicioSesion = 'Cerrar Sesión';
+    $enlaceSesion = '/index/logout';
+    $claseSesion = 'sign-out';
 }
-
-// if ($_SESSION["usuario"] != null) {
-//     $textoInicioSesion = 'Cerrar Sesión';
-//     $enlaceSesion = '/cerrar-sesion';
-//     $claseSesion = 'sign-out';
-// }
 ?>
 
 <!DOCTYPE html>
@@ -42,8 +37,7 @@ if (empty($_SESSION['usuario'])) {
 <body>
     <header>
         <div class="logo">
-            <a class="logo" href="http://localhost:8081/Proyecto%20TFG/"><img class="logo" src="assets/img/logo.png"
-                    alt="Logo"></a>
+            <a class="logo" href="../"><img class="logo" src="assets/img/logo.png" alt="Logo"></a>
         </div>
         <nav>
             <a class="enlace-menu" href="index/catalogo">Catálogo</a>
@@ -63,14 +57,7 @@ if (empty($_SESSION['usuario'])) {
                 tu colección al
                 siguiente nivel.</p>
         </div>
-        <div id="guias">
-            <div>
-                <!-- Poner video de funcionamiento -->
-            </div>
-            <div>
-                <!-- Guia escrita -->
-            </div>
-        </div>
+
     </main>
 
     <footer>

@@ -12,6 +12,7 @@ $route->get('/', [IndexController::class, 'index'])
     ->get('/catalogo', [CatalogoController::class, 'index'])
     ->get('/login', [AuthController::class, 'login'])
     ->get('/register', [AuthController::class, 'register'])
+    ->get('/logout', [AuthController::class, 'logout'])
     ->post('/doLogin', [AuthController::class, 'doLogin'])
     ->post('/doRegister', [AuthController::class, 'doRegister']);
 

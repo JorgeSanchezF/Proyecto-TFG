@@ -12,33 +12,30 @@ class AuthController
         $email = $_POST['email'];
         $contraseña = $_POST['password'];
 
+
         $usuario = new Usuario();
 
         $user_log = $usuario->findByEmail($email)->fetch();
 
 
+
         if (password_verify($contraseña, $user_log['contraseña'])) {
             $_SESSION['usuario'] = $user_log;
 
-
-            switch ($user_log['rol_id']) {
-                case 1:
-                    # Para administrador
-                    header('Location: catalogo');
-                    break;
-                case 2:
-                    # Para cliente
-                    header('Location: catalogo');
-                    break;
-                default:
-                    # En caso de error
-                    header('Location: login');
-                    break;
+            if ($user_log['rol_id'] == 1) {
+                header('Location: catalogo');
+                exit;
+            } else {
+                header('Location: catalogo');
+                exit;
             }
+
+
         } else {
-            $_SESSION['mensaje'] = 'Error de credenciales. No son correctas';
+
 
             header('Location: login');
+            exit;
         }
     }
 
@@ -63,12 +60,21 @@ class AuthController
 
 
         $usuario->store($datos);
-        header('Location: catalogo');
+        header('Location: login');
+        exit;
     }
     public static function logout()
     {
-        if (session_id()) {
+        var_dump($_SESSION['usuario']);
+        exit;
+        if ($_SESSION['user'] != null) {
             session_destroy();
+            header('Location: login');
+            exit;
+        } else {
+            header('Location: catalogo');
+            exit;
         }
+
     }
 }
