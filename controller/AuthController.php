@@ -25,7 +25,7 @@ class AuthController
             $_SESSION['usuario'] = $user_log;
 
             if ($user_log['rol_id'] == 1) {
-                header('Location: catalogo');
+                header('Location: dashboard');
                 exit;
             } else {
                 header('Location: catalogo');
@@ -64,6 +64,11 @@ class AuthController
         $usuario->store($datos);
         header('Location: login');
         exit;
+    }
+    public static function dashboard()
+    {
+
+        include 'views/private/dashboard.php';
     }
     public static function logout()
     {
