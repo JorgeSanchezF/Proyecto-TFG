@@ -9,9 +9,13 @@
 
 <body>
     <main>
-        <a href="">Administrar catálogo</a>
-        <a href="">Administrar usuarios</a>
-        <a href="">Administrar reseñas</a>
+
+        <h3>Bienvenido Administrador <?php echo $_SESSION['usuario']['apodo'] ?></h3>
+        <div>
+            <a href="catalogo-admin">Administrar catálogo</a>
+            <a href="">Administrar usuarios</a>
+            <a href="">Administrar reseñas</a>
+        </div>
     </main>
 </body>
 

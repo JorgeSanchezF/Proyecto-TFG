@@ -14,6 +14,9 @@ $route->get('/', [IndexController::class, 'index'])
     ->get('/register', [AuthController::class, 'register'])
     ->get('/logout', [AuthController::class, 'logout'])
     ->get('/dashboard', [AuthController::class, 'dashboard'])
+    ->get('/catalogo-admin', [CatalogoController::class, 'catalogoAdmin'])
+    ->get('/juego', [CatalogoController::class, 'juegoDetalles'])
+    ->get('/catalogo-create', [CatalogoController::class, 'create'])
     ->post('/doLogin', [AuthController::class, 'doLogin'])
     ->post('/doRegister', [AuthController::class, 'doRegister']);
 
