@@ -25,7 +25,7 @@ class Juego_has_etiqueta implements Model
 
     public function store($datos)
     {
-        $query = "INSERT INTO juego_has_etiqueta (nombre) VALUE($datos[0])";
+        $query = "INSERT INTO juego_has_etiqueta (juego_id, etiqueta_id) VALUE($datos[0],$datos[1])";
         $db = new Database();
         $db = Database::conectar();
         $result = $db->exec($query);
@@ -41,10 +41,11 @@ class Juego_has_etiqueta implements Model
         $db = Database::desconectar();
     }
 
+
     public function destroyById($id)
     {
         $db = Database::conectar();
-        $query = "DELETE FROM juego_has_etiqueta WHERE id=$id";
+        $query = "DELETE FROM juego_has_etiqueta WHERE juego_id=$id";
         $result = $db->query($query);
         $db = Database::desconectar();
     }

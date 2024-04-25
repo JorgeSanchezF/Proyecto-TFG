@@ -17,6 +17,10 @@ $route->get('/', [IndexController::class, 'index'])
     ->get('/catalogo-admin', [CatalogoController::class, 'catalogoAdmin'])
     ->get('/juego', [CatalogoController::class, 'juegoDetalles'])
     ->get('/catalogo-create', [CatalogoController::class, 'create'])
+    ->get('/catalogo-edit', [CatalogoController::class, 'edit'])
+    ->get('/catalogo-delete', [CatalogoController::class, 'destroy'])
+    ->post('/catalogo-save', [CatalogoController::class, 'save'])
+    ->post('/catalogo-update', [CatalogoController::class, 'update'])
     ->post('/doLogin', [AuthController::class, 'doLogin'])
     ->post('/doRegister', [AuthController::class, 'doRegister']);
 

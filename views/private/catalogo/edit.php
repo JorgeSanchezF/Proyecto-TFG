@@ -4,78 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Videojuego</title>
-
+    <title>Editar Juego</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
 </head>
 
 <body>
-    <script>
-        function validarFormulario() {
-            let nombre = document.getElementById('nombre').value;
-            let descripcion = document.getElementById('descripcion').value;
-            let precio = document.getElementById('precio').value;
-            let duracion = document.getElementById('duracion').value;
-            let etiquetas = document.querySelectorAll('input[name="etiquetas[]"]:checked').length;
-            let plataformas = document.querySelectorAll('input[name="plataformas[]"]:checked').length;
-
-            if (nombre === '' || descripcion === '' || precio === '' || duracion === '' || (etiquetas === 0 && plataformas === 0)) {
-                alert('Por favor, completa todos los campos y selecciona al menos una etiqueta o plataforma.');
-                return false;
-            }
-
-            return true;
-        }
-
-        $(document).ready(function () {
-            $("button[type='submit']").prop("disabled", true);
-        });
-
-        $('input[name="etiquetas[]"], input[name="plataformas[]"]').change(function () {
-            let nombre = $('#nombre').val();
-            let descripcion = $('#descripcion').val();
-            let precio = $('#precio').val();
-            let duracion = $('#duracion').val();
-            let etiquetas = $('input[name="etiquetas[]"]:checked').length;
-            let plataformas = $('input[name="plataformas[]"]:checked').length;
-
-            if (nombre !== '' && descripcion !== '' && precio !== '' && duracion !== '' && (etiquetas > 0 || plataformas > 0)) {
-                $("button[type='submit']").prop("disabled", false);
-            } else {
-                $("button[type='submit']").prop("disabled", true);
-            }
-        });
-    </script>
-
     <main class="container mt-5">
-        <a href="catalogo-admin" class="btn btn-secondary">Volver</a>
+        <a href="catalogo-admin" class="btn btn-primary mb-3">Volver a tabla</a>
+        <form action="catalogo-update" method="post" onsubmit="return validarFormulario()">
 
-        <h2>Insertar Videojuego</h2>
-        <form id="videojuegoForm" action="catalogo-save" method="POST">
+            <div class="form-group">
+
+                <input type="hidden" class="form-control" id="id" name="id" placeholder="<?php echo $juegos[0] ?>"
+                    required>
+            </div>
 
             <div class="form-group">
                 <label for="nombre">Nombre del Videojuego:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="<?php echo $juegos[1] ?>"
+                    required>
             </div>
-
 
             <div class="form-group">
                 <label for="descripcion">Descripción:</label>
-                <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3"
+                    placeholder="<?php echo $juegos[2] ?>" required></textarea>
             </div>
-
 
             <div class="form-group">
                 <label for="precio">Precio (€):</label>
-                <input type="number" class="form-control" id="precio" name="precio" step="0.01" required>
+                <input type="number" class="form-control" id="precio" name="precio" min="0" step="0.01"
+                    placeholder="<?php echo $juegos[5] ?>" required>
             </div>
-
 
             <div class="form-group">
-                <label for="duracion">Horas de duración:</label>
-                <input type="number" class="form-control" id="duracion" name="duracion" step="0.1" required>
+                <label for="duracion">Duración en horas:</label>
+                <input type="number" class="form-control" id="duracion" name="duracion" min="0" step="0.1"
+                    placeholder="<?php echo $juegos[3] ?>" required>
             </div>
+
             <div class="form-group">
                 <div class="form-group">
                     <label>Plataformas:</label>
@@ -189,11 +156,9 @@
             </div>
 
 
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" class="btn btn-primary" id="enviar">Guardar cambios</button>
         </form>
     </main>
-
-
 
 
 </body>

@@ -22,10 +22,19 @@ class Juego implements Model
         $db = Database::desconectar();
         return $result;
     }
-
+    public function maxId()
+    {
+        $query = "SELECT * FROM juego ORDER BY id DESC LIMIT 1";
+        $db = new Database();
+        $db = Database::conectar();
+        $result = $db->query($query);
+        $db = Database::desconectar();
+        return $result;
+    }
     public function store($datos)
     {
-        $query = "INSERT INTO juego (nombre, precio, descripcion, duracion, plataforma) VALUES('$datos[0]','$datos[1]','$datos[2]',$datos[3],$datos[4])";
+
+        $query = "INSERT INTO juego (nombre, precio, descripcion, duracion, plataforma,imagen) VALUES('$datos[0]','$datos[1]','$datos[2]',$datos[3],'$datos[4]','$datos[5]')";
 
         $db = new Database();
         $db = Database::conectar();

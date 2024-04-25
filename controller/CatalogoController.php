@@ -45,7 +45,6 @@ class CatalogoController implements Controller
     }
     public static function create()
     {
-        //hacer que al insertar juego se inserten las etiquetas
 
         include 'views/private/catalogo/create.php';
     }
@@ -53,18 +52,102 @@ class CatalogoController implements Controller
     public static function save()
     {
         //hacer que al insertar juego se inserten las etiquetas
+        $nombre = $_POST['nombre'];
+        $descripcion = $_POST['descripcion'];
+        $precio = $_POST['precio'];
+        $duracion = $_POST['duracion'];
+        $plataformas = $_POST['plataformas'];
+        $etiquetas = $_POST['etiquetas'];
+
+        $plataformasTexto = implode(', ', $plataformas);
+
+        $imagen = str_replace(' ', '', $nombre);
+        $imagen = strtolower($imagen);
+
+        $datos = [
+            $nombre,
+            $precio,
+            $descripcion,
+            $duracion,
+            $plataformasTexto,
+            $imagen
+        ];
+
+
+        $juego = new Juego();
+        $juego_has_etiqueta = new Juego_has_etiqueta();
+        $juego->store($datos);
+        $ultimoJuego = $juego->maxId()->fetch();
+
+        foreach ($etiquetas as $key => $value) {
+
+            $datosEtiqueta = [
+                $ultimoJuego[0],
+                $value
+            ];
+
+            $juego_has_etiqueta->store($datosEtiqueta);
+
+        }
+        header('Location: catalogo-admin');
+
     }
 
     public static function edit($id)
     {
-
+        $id = $_GET['id'];
+        $juego = new Juego();
+        $juegos = $juego->findById($id)->fetch();
+        include 'views/private/catalogo/edit.php';
     }
     public static function update()
     {
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $descripcion = $_POST['descripcion'];
+        $precio = $_POST['precio'];
+        $duracion = $_POST['duracion'];
+        $plataformas = $_POST['plataformas'];
+        $etiquetas = $_POST['etiquetas'];
+
+        $plataformasTexto = implode(', ', $plataformas);
+
+        $imagen = str_replace(' ', '', $nombre);
+        $imagen = strtolower($imagen);
+
+        $datos = [
+            $nombre,
+            $precio,
+            $descripcion,
+            $duracion,
+            $plataformasTexto,
+            $imagen
+        ];
+
+        $juego = new Juego();
+        $etiqueta = new Juego_has_etiqueta();
+
+        $juego->updateById($id, $datos);
+        $etiqueta->destroyById($id);
+
+        foreach ($etiquetas as $key => $value) {
+
+            $datosEtiqueta = [
+                $id,
+                $value
+            ];
+
+            $etiqueta->store($datosEtiqueta);
+
+        }
 
     }
     public static function destroy()
     {
+        $id = $_GET['id'];
 
+        $juego = new Juego();
+        $juego->destroyById($id);
+        header('Location: catalogo-admin');
     }
 }

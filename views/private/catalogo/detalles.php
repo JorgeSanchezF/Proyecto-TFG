@@ -13,6 +13,7 @@
     <main class="container mt-5">
         <a href="catalogo-admin" class="btn btn-primary mb-3">Volver a tabla</a>
         <div class="card">
+
             <div class="card-body">
                 <h3 class="card-title"><?php echo $juegos[1] ?></h3>
                 <p class="card-text"><?php echo $juegos[2] ?></p>
@@ -66,10 +67,11 @@
                     ?>
                 <?php endforeach ?>
             </div>
+            <a class="btn btn-secondary mb-3" href="catalogo-edit?id=<?php echo $juegos[0] ?>">Editar juego</a>
         </div>
     </main>
 
-    
+
 </body>
 
 </html>
