@@ -61,7 +61,7 @@ class CatalogoController implements Controller
 
         $plataformasTexto = implode(', ', $plataformas);
 
-        $imagen = str_replace(' ', '', $nombre);
+        $imagen = preg_replace('/[^a-zA-Z0-9]/', '', $nombre);
         $imagen = strtolower($imagen);
 
         $datos = [
@@ -112,7 +112,7 @@ class CatalogoController implements Controller
 
         $plataformasTexto = implode(', ', $plataformas);
 
-        $imagen = str_replace(' ', '', $nombre);
+        $imagen = preg_replace('/[^a-zA-Z0-9]/', '', $nombre);
         $imagen = strtolower($imagen);
 
         $datos = [
