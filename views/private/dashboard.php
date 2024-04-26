@@ -15,7 +15,7 @@
         <h3 class="mb-4">Bienvenido Administrador <?php echo ucfirst($_SESSION['usuario']['apodo']) ?></h3>
         <div class="list-group">
             <a href="catalogo-admin" class="list-group-item list-group-item-action">Administrar catálogo</a>
-            <a href="usaurio-admin" class="list-group-item list-group-item-action">Administrar usuarios</a>
+            <a href="usuario-admin" class="list-group-item list-group-item-action">Administrar usuarios</a>
             <a href="reseña-admin" class="list-group-item list-group-item-action">Administrar reseñas</a>
         </div>
     </main>

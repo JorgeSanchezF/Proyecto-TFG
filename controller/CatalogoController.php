@@ -51,7 +51,6 @@ class CatalogoController implements Controller
 
     public static function save()
     {
-        //hacer que al insertar juego se inserten las etiquetas
         $nombre = $_POST['nombre'];
         $descripcion = $_POST['descripcion'];
         $precio = $_POST['precio'];
