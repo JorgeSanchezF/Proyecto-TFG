@@ -29,7 +29,7 @@ class UsuarioController implements Controller
     {
         $id = $_GET['id'];
         $usuario = new Usuario();
-        $usuario->findById($id)->fetch();
+        $usuarios = $usuario->findById($id)->fetch();
         include 'views/private/usuario/edit.php';
 
     }
@@ -38,8 +38,19 @@ class UsuarioController implements Controller
     public static function update()
     {
         $id = $_POST['id'];
+        $correo = $_POST['correo'];
+        $apodo = $_POST['apodo'];
+        $rol = $_POST['rol'];
 
+        $datos = [
+            'correo' => $correo,
+            'apodo' => $apodo,
+            'rol_id' => $rol
+        ];
 
+        $usuario = new Usuario();
+        $usaurios = $usuario->updateById($id, $datos);
+        header('Location: usuario-admin');
     }
 
 
