@@ -11,7 +11,7 @@
 
 <body>
     <main class="container mt-5">
-
+        <a href="catalogo" class="btn btn-primary">Atras</a>
         <h3 class="mb-4">Bienvenido Administrador <?php echo ucfirst($_SESSION['usuario']['apodo']) ?></h3>
         <div class="list-group">
             <a href="catalogo-admin" class="list-group-item list-group-item-action">Administrar catálogo</a>

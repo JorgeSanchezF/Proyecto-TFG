@@ -49,7 +49,7 @@
     </script>
 
     <main class="container mt-5">
-        <a href="catalogo-admin" class="btn btn-secondary">Volver</a>
+        <a href="catalogo-admin" class="btn btn-primary">Volver</a>
 
         <h2>Insertar Videojuego</h2>
         <form id="videojuegoForm" action="catalogo-save" method="POST">

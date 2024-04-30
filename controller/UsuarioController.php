@@ -56,6 +56,9 @@ class UsuarioController implements Controller
 
     public static function destroy()
     {
-
+        $id = $_GET['id'];
+        $usuario = new Usuario();
+        $usuarios = $usuario->destroyById($id);
+        header('Location: usuario-admin');
     }
 }
