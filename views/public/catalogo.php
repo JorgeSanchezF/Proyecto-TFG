@@ -41,9 +41,9 @@ if (empty($_SESSION['usuario'])) {
             <a class="logo" href="../"><img class="logo" src="../assets/img/logo.png" alt="Logo"></a>
         </div>
         <nav>
-            <a class="enlace-menu" href="index/catalogo">Catálogo</a>
-            <a class="enlace-menu" href="index/estadisticas">Estadísticas</a>
-            <a class="enlace-menu" href="index/perfil">Perfil</a>
+            <a class="enlace-menu" href="catalogo">Catálogo</a>
+            <a class="enlace-menu" href="estadisticas">Estadísticas</a>
+            <a class="enlace-menu" href="perfil">Perfil</a>
         </nav>
         <a href=<?php echo $enlaceSesion ?> class=<?php echo $claseSesion ?>><?php echo $textoInicioSesion ?></a>
     </header>
@@ -56,7 +56,7 @@ if (empty($_SESSION['usuario'])) {
                 <p class="card-duracion"><?php echo $juego[3] ?> horas</p>
                 <p class="card-plataforma"><?php echo $juego[4] ?></p>
                 <p class="card-precio"><?php echo $juego[5] ?>€</p>
-                <a class="boton-añadir" href="">Añadir</a>
+                <a class="boton-añadir" href="añadir-juego?id=<?php echo $juego[0] ?>">Añadir</a>
             </div>
         <?php endforeach; ?>
 
