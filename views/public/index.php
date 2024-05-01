@@ -50,7 +50,7 @@ if (empty($_SESSION['usuario'])) {
         <div id="presentacion">
             <img id="fondo-index" src="assets/img/fondo-index.png" alt="imagen-fondo-bienvenida">
 
-            <p id="texto-superior">Coleccionista Digital es tu plataforma para organizar tu backlog, leer reseñas y
+            <p id="texto-superior">Coleccionista Digital es tu plataforma para organizar tu biblioteca, leer reseñas y
                 consultar la
                 duración de tus videojuegos favoritos.</p>
             <p id="texto-inferior">Descubre nuevos juegos, encuentra tu próximo desafío y lleva
