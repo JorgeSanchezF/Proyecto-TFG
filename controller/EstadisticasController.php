@@ -2,6 +2,7 @@
 require_once 'Controller.php';
 require_once 'models/Biblioteca.php';
 require_once 'models/Juego.php';
+require_once 'models/Etiqueta.php';
 class EstadisticasController implements Controller
 {
     public static function index()
@@ -12,13 +13,24 @@ class EstadisticasController implements Controller
         $bibliotecaId = $bibliotecaId[0];
         $juegosIds = $biblioteca->findJuegosByBiblioteca($bibliotecaId)->fetchAll();
         $juego = new Juego();
+        $etiqueta = new Etiqueta();
+
         $horasTotales = 0;
         $dineroTotal = 0;
         $juegosArray = [];
+        $etiquetasArray = [];
 
         foreach ($juegosIds as $key => $value) {//recoge los juegos usando el id encontrado dentro de biblioteca_has_juego
             $juegos = $juego->findById($value[2])->fetch();
+            $etiquetas = $etiqueta->findByJuegoId($value[2]);
+
+            foreach ($etiquetas as $key => $k) {
+
+                array_push($etiquetasArray, $k[2]);
+            }
+
             array_push($juegosArray, $juegos);
+
         }
 
         foreach ($juegosArray as $key => $value) {//cuenta el numero de horas total y el precio total entre todos los videojuegos en la biblioteca

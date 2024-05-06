@@ -23,6 +23,15 @@ class Etiqueta implements Model
         return $result;
     }
 
+    public function findByJuegoId($id)
+    {
+        $query = "SELECT * FROM juego_has_etiqueta WHERE juego_id=$id";
+        $db = new Database();
+        $db = Database::conectar();
+        $result = $db->query($query)->fetchAll();
+        $db = Database::desconectar();
+        return $result;
+    }
     public function store($datos)
     {
         $query = "INSERT INTO etiqueta (nombre) VALUE($datos[0])";
@@ -48,4 +57,5 @@ class Etiqueta implements Model
         $result = $db->query($query);
         $db = Database::desconectar();
     }
+
 }

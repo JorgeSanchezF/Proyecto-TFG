@@ -18,6 +18,51 @@ if (empty($_SESSION['usuario'])) {
     $enlaceSesion = 'logout';
     $claseSesion = 'sign-out';
 }
+$etiquetasArrayConv = [];
+foreach ($etiquetasArray as $value) {
+    switch ($value) {
+        case 1:
+            array_push($etiquetasArrayConv, "Disparos");
+            break;
+        case 2:
+            array_push($etiquetasArrayConv, "Acción");
+            break;
+        case 3:
+            array_push($etiquetasArrayConv, "Aventura");
+            break;
+        case 4:
+            array_push($etiquetasArrayConv, "Rol");
+            break;
+        case 5:
+            array_push($etiquetasArrayConv, "Estrategia");
+            break;
+        case 6:
+            array_push($etiquetasArrayConv, "Terror");
+            break;
+        case 7:
+            array_push($etiquetasArrayConv, "Primera persona");
+            break;
+        case 8:
+            array_push($etiquetasArrayConv, "Tercera persona");
+            break;
+        case 9:
+            array_push($etiquetasArrayConv, "Free to play");
+            break;
+        case 10:
+            array_push($etiquetasArrayConv, "Arcade");
+            break;
+        case 11:
+            array_push($etiquetasArrayConv, "Simulación");
+            break;
+        case 12:
+            array_push($etiquetasArrayConv, "Casual");
+            break;
+        default:
+            array_push($etiquetasArrayConv, "Deportes");
+            break;
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +74,7 @@ if (empty($_SESSION['usuario'])) {
     <title>Estadísticas</title>
     <link rel="stylesheet" href="../assets/css/general.css">
     <link rel="stylesheet" href="../assets/css/estadisticas.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -56,6 +102,11 @@ if (empty($_SESSION['usuario'])) {
             <div class="card-estadisticas">
                 <h3>Precio de tu biblioteca</h3>
                 <p>El valor de tu biblioteca es de <?php echo $dineroTotal ?> €</p>
+            </div>
+            <div class="card-estadisticas">
+                <h3>Generos más jugados</h3>
+                <!-- grafico -->
+                <canvas id="doughnutChart" width="400" height="400"></canvas>
             </div>
         </div>
 
@@ -107,5 +158,71 @@ if (empty($_SESSION['usuario'])) {
                 card.style.display = "none";
             }
         });
+    });
+</script>
+<script>
+    // Convertir el array PHP a JavaScript
+    var etiquetasArrayConv = <?php echo json_encode($etiquetasArrayConv); ?>;
+
+    // Conteo de las etiquetas
+    var etiquetasCount = etiquetasArrayConv.reduce(function (acc, val) {
+        acc[val] = (acc[val] || 0) + 1;
+        return acc;
+    }, {});
+
+    // Configuración de datos para el gráfico
+    var etiquetasLabels = Object.keys(etiquetasCount);
+    var etiquetasData = Object.values(etiquetasCount);
+
+    // Crear el gráfico de doughnut
+    var ctx = document.getElementById('doughnutChart').getContext('2d');
+    var doughnutChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: etiquetasLabels,
+            datasets: [{
+                label: 'Etiquetas',
+                data: etiquetasData,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    'rgba(153, 102, 255, 0.5)',
+                    'rgba(255, 159, 64, 0.5)',
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    'rgba(153, 102, 255, 0.5)',
+                    'rgba(255, 159, 64, 0.5)',
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: false,
+            maintainAspectRatio: false
+        }
     });
 </script>
