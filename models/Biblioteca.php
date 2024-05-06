@@ -58,4 +58,12 @@ class Biblioteca implements Model
     {
 
     }
+    public function destroyJuegoFromBiblioteca($bibliotecaId, $juegoId)
+    {
+        
+        $query = "DELETE FROM biblioteca_has_juego WHERE biblioteca_id=$bibliotecaId[0] AND juego_id=$juegoId";
+        $db = new Database();
+        $db = Database::conectar();
+        $db->exec($query);
+    }
 }

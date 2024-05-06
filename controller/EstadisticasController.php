@@ -36,6 +36,14 @@ class EstadisticasController implements Controller
 
     public static function save()
     {
+        $juegoId = $_GET['id'];
+        $usuarioId = $_SESSION['usuario']['id'];
+
+        $biblioteca = new Biblioteca();
+        $bibliotecaUsuario = $biblioteca->findBibliotecaByUsuario($usuarioId)->fetch();
+        $datos = [$bibliotecaUsuario[0], $juegoId];
+        $biblioteca->store($datos);
+        header('Location: catalogo');
     }
 
     public static function edit($id)
@@ -48,5 +56,12 @@ class EstadisticasController implements Controller
 
     public static function destroy()
     {
+        $idJuego = $_GET['id'];
+        $usuarioId = $_SESSION['usuario']['id'];
+        $biblioteca = new Biblioteca();
+        $bibliotecaId = $biblioteca->findBibliotecaByUsuario($usuarioId)->fetch();
+        $juego = new Biblioteca();
+        $juego->destroyJuegoFromBiblioteca($bibliotecaId, $idJuego);
+        header('Location: estadisticas');
     }
 }

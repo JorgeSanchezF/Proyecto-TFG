@@ -55,7 +55,7 @@ if (empty($_SESSION['usuario'])) {
             </div>
             <div class="card-estadisticas">
                 <h3>Precio de tu biblioteca</h3>
-                <p>Has gastado <?php echo $dineroTotal ?> €</p>
+                <p>El valor de tu biblioteca es de <?php echo $dineroTotal ?> €</p>
             </div>
         </div>
 
@@ -74,6 +74,7 @@ if (empty($_SESSION['usuario'])) {
                 </div>
             <?php endforeach; ?>
         </div>
+        <!-- crear mas secciones que muestren etiquetas más comunes y plataforma más comun -->
     </main>
     <footer>
         <div class="redes">

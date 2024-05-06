@@ -56,7 +56,7 @@ if (empty($_SESSION['usuario'])) {
                 <p class="card-duracion"><?php echo $juego[3] ?> horas</p>
                 <p class="card-plataforma"><?php echo $juego[4] ?></p>
                 <p class="card-precio"><?php echo $juego[5] ?>€</p>
-                <a class="boton-añadir" href="añadir-juego?id=<?php echo $juego[0] ?>">Añadir</a>
+                <a class="boton-añadir" href="anadir-juego?id=<?php echo $juego[0] ?>">Añadir</a>
             </div>
         <?php endforeach; ?>
 
