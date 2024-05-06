@@ -23,6 +23,8 @@ header {
 .logo {
     width: 5.737vw;
     margin-left: 2%;
+    transition: color 0.3s ease, background-color 0.3s ease;
+
 
 }
 
@@ -81,6 +83,8 @@ nav a {
     text-decoration: none;
     text-align: center;
     margin-right: 2%;
+    transition: color 0.3s ease, background-color 0.3s ease;
+
 }
 
 .sign-in:hover {
@@ -96,6 +100,8 @@ nav a {
     text-decoration: none;
     text-align: center;
     margin-right: 2%;
+    transition: color 0.3s ease, background-color 0.3s ease;
+
 }
 
 .sign-out:hover {
