@@ -11,36 +11,35 @@
 <body>
     <main class="container mt-5">
         <a href="catalogo-admin" class="btn btn-primary mb-3">Volver a tabla</a>
-        <form action="catalogo-update" method="post" onsubmit="return validarFormulario()">
+        <form action="catalogo-update" method="post">
 
             <div class="form-group">
 
-                <input type="hidden" class="form-control" id="id" name="id" placeholder="<?php echo $juegos[0] ?>"
-                    required>
+                <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $juegos[0] ?>" required>
             </div>
 
             <div class="form-group">
                 <label for="nombre">Nombre del Videojuego:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="<?php echo $juegos[1] ?>"
+                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $juegos[1] ?>"
                     required>
             </div>
 
             <div class="form-group">
                 <label for="descripcion">Descripción:</label>
-                <textarea class="form-control" id="descripcion" name="descripcion" rows="3"
-                    placeholder="<?php echo $juegos[2] ?>" required></textarea>
+                <input class="form-control" id="descripcion" name="descripcion" rows="3"
+                    value="<?php echo $juegos[2] ?>" required></input>
             </div>
 
             <div class="form-group">
                 <label for="precio">Precio (€):</label>
                 <input type="number" class="form-control" id="precio" name="precio" min="0" step="0.01"
-                    placeholder="<?php echo $juegos[5] ?>" required>
+                    value="<?php echo $juegos[5] ?>" required>
             </div>
 
             <div class="form-group">
                 <label for="duracion">Duración en horas:</label>
                 <input type="number" class="form-control" id="duracion" name="duracion" min="0" step="0.1"
-                    placeholder="<?php echo $juegos[3] ?>" required>
+                    value="<?php echo $juegos[3] ?>" required>
             </div>
 
             <div class="form-group">
@@ -99,58 +98,57 @@
                 <label>Etiquetas:</label>
                 <div>
                     <div>
-                        <input type="checkbox" id="disparos" name="etiquetas[]" value="0">
+                        <input type="checkbox" id="disparos" name="etiquetas[]" value="1">
                         <label for="disparos">Disparos</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="accion" name="etiquetas[]" value="1">
+                        <input type="checkbox" id="accion" name="etiquetas[]" value="2">
                         <label for="accion">Acción</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="aventura" name="etiquetas[]" value="2">
+                        <input type="checkbox" id="aventura" name="etiquetas[]" value="3">
                         <label for="aventura">Aventura</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="rol" name="etiquetas[]" value="3">
+                        <input type="checkbox" id="rol" name="etiquetas[]" value="4">
                         <label for="rol">Rol</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="estrategia" name="etiquetas[]" value="4">
+                        <input type="checkbox" id="estrategia" name="etiquetas[]" value="5">
                         <label for="estrategia">Estrategia</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="terror" name="etiquetas[]" value="5">
+                        <input type="checkbox" id="terror" name="etiquetas[]" value="6">
                         <label for="terror">Terror</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="primera_persona" name="etiquetas[]" value="6">
+                        <input type="checkbox" id="primera_persona" name="etiquetas[]" value="7">
                         <label for="primera_persona">Primera persona</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="tercera_persona" name="etiquetas[]" value="7">
+                        <input type="checkbox" id="tercera_persona" name="etiquetas[]" value="8">
                         <label for="tercera_persona">Tercera persona</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="free_to_play" name="etiquetas[]" value="8">
+                        <input type="checkbox" id="free_to_play" name="etiquetas[]" value="9">
                         <label for="free_to_play">Free to play</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="arcade" name="etiquetas[]" value="9">
+                        <input type="checkbox" id="arcade" name="etiquetas[]" value="10">
                         <label for="arcade">Arcade</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="simulacion" name="etiquetas[]" value="10">
+                        <input type="checkbox" id="simulacion" name="etiquetas[]" value="11">
                         <label for="simulacion">Simulación</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="casual" name="etiquetas[]" value="11">
+                        <input type="checkbox" id="casual" name="etiquetas[]" value="12">
                         <label for="casual">Casual</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="deportes" name="etiquetas[]" value="12">
+                        <input type="checkbox" id="deportes" name="etiquetas[]" value="13">
                         <label for="deportes">Deportes</label>
                     </div>
-
                 </div>
 
             </div>
@@ -164,3 +162,18 @@
 </body>
 
 </html>
+<script>
+    document.getElementById('formulario').addEventListener('submit', function (event) {
+        let nombre = document.getElementById('nombre').value.trim();
+        let descripcion = document.getElementById('descripcion').value.trim();
+        let precio = document.getElementById('precio').value.trim();
+        let duracion = document.getElementById('duracion').value.trim();
+        let plataformas = document.querySelectorAll('input[name="plataformas[]"]:checked');
+        let etiquetas = document.querySelectorAll('input[name="etiquetas[]"]:checked');
+
+        if (nombre === '' || descripcion === '' || precio === '' || duracion === '' || plataformas.length === 0 || etiquetas.length === 0) {
+            event.preventDefault();
+            alert('Por favor, completa todos los campos y selecciona al menos una plataforma y una etiqueta.');
+        }
+    });
+</script>

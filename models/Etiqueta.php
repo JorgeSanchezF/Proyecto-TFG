@@ -57,5 +57,5 @@ class Etiqueta implements Model
         $result = $db->query($query);
         $db = Database::desconectar();
     }
-
+    
 }

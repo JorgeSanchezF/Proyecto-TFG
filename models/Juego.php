@@ -47,16 +47,17 @@ class Juego implements Model
 
     public function updateById($id, $datos)
     {
-        $query = "UPDATE FROM juego (" . implode(".", array_keys($datos)) . ", rol_id)VALUES('" . implode("',", array_values($datos)) . "' WHERE id=$id)";
+        $query = "UPDATE juego SET nombre='$datos[0]', descripcion='$datos[1]', duracion=$datos[2], plataforma='$datos[3]', precio=$datos[4], imagen='$datos[5]' WHERE id=$id";
+
         $db = Database::conectar();
-        $db = exec($query);
+        $db->exec($query);
         $db = Database::desconectar();
     }
 
     public function destroyById($id)
     {
-        $db = Database::conectar();
         $query = "DELETE FROM juego WHERE id=$id";
+        $db = Database::conectar();
         $result = $db->query($query);
         $db = Database::desconectar();
     }

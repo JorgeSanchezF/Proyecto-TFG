@@ -116,10 +116,10 @@ class CatalogoController implements Controller
 
         $datos = [
             $nombre,
-            $precio,
             $descripcion,
             $duracion,
             $plataformasTexto,
+            $precio,
             $imagen
         ];
 
@@ -139,6 +139,8 @@ class CatalogoController implements Controller
             $etiqueta->store($datosEtiqueta);
 
         }
+
+        header('Location: catalogo-admin');
 
     }
     public static function destroy()

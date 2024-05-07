@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles</title>
-    <!-- Bootstrap CSS -->
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -25,43 +25,43 @@
                     <?php
                     switch ($etiqueta[2]) {
                         case 1:
-                            echo "<span class='badge badge-primary'>Acción</span> ";
+                            echo "<span class='badge badge-primary'>Disparos</span> ";
                             break;
                         case 2:
-                            echo "<span class='badge badge-primary'>Aventura</span> ";
+                            echo "<span class='badge badge-primary'>Accion</span> ";
                             break;
                         case 3:
-                            echo "<span class='badge badge-primary'>Rol</span> ";
+                            echo "<span class='badge badge-primary'>Aventura</span> ";
                             break;
                         case 4:
-                            echo "<span class='badge badge-primary'>Estrategia</span> ";
+                            echo "<span class='badge badge-primary'>Rol</span> ";
                             break;
                         case 5:
-                            echo "<span class='badge badge-primary'>Terror</span> ";
+                            echo "<span class='badge badge-primary'>Estrategia</span> ";
                             break;
                         case 6:
-                            echo "<span class='badge badge-primary'>Primera persona</span> ";
+                            echo "<span class='badge badge-primary'>Terror</span> ";
                             break;
                         case 7:
-                            echo "<span class='badge badge-primary'>Tercera persona</span> ";
+                            echo "<span class='badge badge-primary'>Primera persona</span> ";
                             break;
                         case 8:
-                            echo "<span class='badge badge-primary'>Free to play</span> ";
+                            echo "<span class='badge badge-primary'>Tercera persona</span> ";
                             break;
                         case 9:
-                            echo "<span class='badge badge-primary'>Arcade</span> ";
+                            echo "<span class='badge badge-primary'>Free to play</span> ";
                             break;
                         case 10:
-                            echo "<span class='badge badge-primary'>Simulación</span> ";
+                            echo "<span class='badge badge-primary'>Arcade</span> ";
                             break;
                         case 11:
-                            echo "<span class='badge badge-primary'>Casual</span> ";
+                            echo "<span class='badge badge-primary'>Simulacion</span> ";
                             break;
                         case 12:
-                            echo "<span class='badge badge-primary'>Deportes</span> ";
+                            echo "<span class='badge badge-primary'>Casual</span> ";
                             break;
                         default:
-                            echo "<span class='badge badge-primary'>Disparos</span> ";
+                            echo "<span class='badge badge-primary'>Deportes</span> ";
                             break;
                     }
                     ?>
