@@ -2,6 +2,7 @@ main {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    width: 99%;
 }
 
 
@@ -17,6 +18,7 @@ main {
 
 .card-estadisticas {
     margin-bottom: 20px;
+    width: fit-content;
 }
 
 .card-estadisticas h3 {
@@ -50,6 +52,7 @@ main {
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 45%;
 
 }
 
@@ -86,6 +89,22 @@ h3 {
 
 .boton-eliminar:hover {
     background-color: #cd2200;
+}
+
+.boton-reseña {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #4784ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    width: fit-content;
+    margin-bottom: 1%;
+}
+
+.boton-reseña:hover {
+    background-color: #0030cd;
 }
 
 #buscador {

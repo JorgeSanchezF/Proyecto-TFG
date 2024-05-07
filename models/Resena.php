@@ -1,72 +1,57 @@
 <?php
 require_once 'Model.php';
 require_once 'db/Database.php';
-class Usuario implements Model
+class Resena implements Model
 {
-
     public function findAll()
     {
-        $query = "SELECT * FROM usuario";
+        $query = "SELECT * FROM reseña";
         $db = new Database();
         $db = Database::conectar();
-
         $result = $db->query($query);
-
         $db = Database::desconectar();
         return $result;
     }
 
     public function findById($id)
     {
-        $query = "SELECT * FROM usuario WHERE id =$id";
+        $query = "SELECT * FROM reseña WHERE id=$id";
         $db = new Database();
         $db = Database::conectar();
-
         $result = $db->query($query);
-
         $db = Database::desconectar();
         return $result;
     }
-    public function findByEmail($email)
+    public function findByUsuarioId($id)
     {
-        $query = "SELECT * FROM usuario WHERE correo = '" . $email . "'";
+        $query = "SELECT * FROM reseña WHERE usaurio_id=$id";
         $db = new Database();
         $db = Database::conectar();
-
         $result = $db->query($query);
-
         $db = Database::desconectar();
         return $result;
     }
 
     public function store($datos)
     {
-
-        // $query = "INSERT INTO usuario (apodo, correo, contraseña, rol_id) VALUES('" . implode("',", array_values($datos)) . "'))";
-        $query = "INSERT INTO usuario (apodo, correo, contraseña, rol_id) VALUES('$datos[0]','$datos[1]','$datos[2]',2)";
-
+        $query = "INSERT INTO reseña(texto, puntuacion, duracion, usuario_id, juego_id)VALUES('$datos[0]',$datos[1],$datos[2],$datos[3],$datos[4])";
         $db = new Database();
         $db = Database::conectar();
-
-        $result = $db->exec($query);
-
+        $db->query($query);
         $db = Database::desconectar();
-        return $result;
+
     }
 
     public function updateById($id, $datos)
     {
-        $query = "";
-        $db = Database::conectar();
-        $db = exec($query);
-        $db = Database::desconectar();
     }
 
     public function destroyById($id)
     {
+        $query = "DELETE reseña WHERE id=$id";
+        $db = new Database();
         $db = Database::conectar();
-        $query = "DELETE FROM usuario WHERE id=$id";
-        $result = $db->query($query);
+        $db->query($query);
         $db = Database::desconectar();
     }
 }

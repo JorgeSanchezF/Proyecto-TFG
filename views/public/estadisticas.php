@@ -120,6 +120,7 @@ foreach ($etiquetasArray as $value) {
                     <p class="card-duracion"><?php echo $juego[3] ?> horas</p>
                     <p class="card-plataforma"><?php echo $juego[4] ?></p>
                     <p class="card-precio"><?php echo $juego[5] ?>€</p>
+                    <a class="boton-reseña" href="resena-crear?id=<?php echo $juego[0] ?>">Reseñar</a>
                     <a class="boton-eliminar" href="eliminar-juego?id=<?php echo $juego[0] ?>">Eliminar</a>
                 </div>
             <?php endforeach; ?>
