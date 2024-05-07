@@ -42,6 +42,7 @@ if (empty($_SESSION['usuario'])) {
         <nav>
             <a class="enlace-menu" href="index/catalogo">Catálogo</a>
             <a class="enlace-menu" href="index/estadisticas">Estadísticas</a>
+            <a class="enlace-menu" href="index/reseñas">Reseñas</a>
             <a class="enlace-menu" href="index/perfil">Perfil</a>
         </nav>
         <a href=<?php echo $enlaceSesion ?> class=<?php echo $claseSesion ?>><?php echo $textoInicioSesion ?></a>
