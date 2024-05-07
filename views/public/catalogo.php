@@ -1,11 +1,8 @@
 <?php
-
 /*
 Comprobación para cambiar el texto de el enlace de inicio de sesión a el nombre de usuario
 si la sesion esta iniciada
 */
-// var_dump($_SESSION);
-// exit;
 
 $textoInicioSesion = '';
 $enlaceSesion = '';
@@ -22,6 +19,7 @@ if (empty($_SESSION['usuario'])) {
     $claseSesion = 'sign-out';
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,18 +46,20 @@ if (empty($_SESSION['usuario'])) {
         <a href=<?php echo $enlaceSesion ?> class=<?php echo $claseSesion ?>><?php echo $textoInicioSesion ?></a>
     </header>
     <main>
-
-        <?php foreach ($juegos as $juego): ?>
-            <div class="card">
-                <img src="../assets/img/juegos/<?php echo $juego[6] ?>.jpg" alt="<?php echo $juego[6] ?>">
-                <p class="card-titulo"><?php echo $juego[1] ?></p>
-                <p class="card-duracion"><?php echo $juego[3] ?> horas</p>
-                <p class="card-plataforma"><?php echo $juego[4] ?></p>
-                <p class="card-precio"><?php echo $juego[5] ?>€</p>
-                <a class="boton-añadir" href="anadir-juego?id=<?php echo $juego[0] ?>">Añadir</a>
-            </div>
-        <?php endforeach; ?>
-
+        <input type="text" id="buscador" placeholder="Buscar juego por nombre...">
+        <div id="seccion">
+            <?php foreach ($juegos as $juego): ?>
+                <div class="card" data-nombre="<?php echo $juego[1] ?>">
+                    <img class="imagen-juego" src="../assets/img/juegos/<?php echo $juego[6] ?>.jpg"
+                        alt="<?php echo $juego[6] ?>">
+                    <p class="card-titulo"><?php echo $juego[1] ?></p>
+                    <p class="card-duracion"><?php echo $juego[3] ?> horas</p>
+                    <p class="card-plataforma"><?php echo $juego[4] ?></p>
+                    <p class="card-precio"><?php echo $juego[5] ?>€</p>
+                    <a class="boton-añadir" href="anadir-juego?id=<?php echo $juego[0] ?>">Añadir</a>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </main>
     <footer>
         <div class="redes">
@@ -76,6 +76,22 @@ if (empty($_SESSION['usuario'])) {
         <p>Al crear una cuenta, estás aceptando nuestros <a href="politica-privacidad">términos de servicio</a> y
             nuestra <a href="politica-privacidad">política de privacidad</a>.</p>
     </footer>
+
+    <script>
+        document.getElementById("buscador").addEventListener("input", function () {
+            var input = this.value.trim().toLowerCase();
+            var cards = document.querySelectorAll(".card");
+
+            cards.forEach(function (card) {
+                var nombreJuego = card.dataset.nombre.toLowerCase();
+                if (nombreJuego.includes(input)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

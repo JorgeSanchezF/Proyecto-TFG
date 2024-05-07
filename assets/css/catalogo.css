@@ -1,9 +1,23 @@
 main {
+    width: 99vw;
+
+}
+
+#seccion {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 99vw;
+}
+
+#buscador {
+    margin-left: 45%;
+    margin-bottom: 1%;
+}
+
+.imagen-juego {
+    width: 100%;
 }
 
 .card {
