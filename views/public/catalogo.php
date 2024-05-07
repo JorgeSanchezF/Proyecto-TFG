@@ -77,21 +77,22 @@ if (empty($_SESSION['usuario'])) {
             nuestra <a href="politica-privacidad">política de privacidad</a>.</p>
     </footer>
 
-    <script>
-        document.getElementById("buscador").addEventListener("input", function () {
-            var input = this.value.trim().toLowerCase();
-            var cards = document.querySelectorAll(".card");
 
-            cards.forEach(function (card) {
-                var nombreJuego = card.dataset.nombre.toLowerCase();
-                if (nombreJuego.includes(input)) {
-                    card.style.display = "block";
-                } else {
-                    card.style.display = "none";
-                }
-            });
-        });
-    </script>
 </body>
+<script>
+    document.getElementById("buscador").addEventListener("input", function () {
+        var input = this.value.trim().toLowerCase();
+        var cards = document.querySelectorAll(".card");
+
+        cards.forEach(function (card) {
+            var nombreJuego = card.dataset.nombre.toLowerCase();
+            if (nombreJuego.includes(input)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+</script>
 
 </html>
