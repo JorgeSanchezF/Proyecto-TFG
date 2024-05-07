@@ -38,6 +38,13 @@ main {
 
 }
 
+#subseccion2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap ;
+    justify-content: space-evenly;
+}
+
 #seccion2 h3 {
     font-size: 24px;
     margin-bottom: 20px;
@@ -52,7 +59,7 @@ main {
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 45%;
+    width: 30%;
 
 }
 

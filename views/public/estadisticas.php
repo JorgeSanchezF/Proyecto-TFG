@@ -113,17 +113,19 @@ foreach ($etiquetasArray as $value) {
         <div id="seccion2">
             <h3>Tu biblioteca</h3>
             <input type="text" id="buscador" placeholder="Buscar por nombre...">
-            <?php foreach ($juegosArray as $juego): ?>
-                <div class="card" data-nombre="<?php echo $juego[1] ?>">
-                    <img src="../assets/img/juegos/<?php echo $juego[6] ?>.jpg" alt="<?php echo $juego[6] ?>">
-                    <p class="card-titulo"><?php echo $juego[1] ?></p>
-                    <p class="card-duracion"><?php echo $juego[3] ?> horas</p>
-                    <p class="card-plataforma"><?php echo $juego[4] ?></p>
-                    <p class="card-precio"><?php echo $juego[5] ?>€</p>
-                    <a class="boton-reseña" href="resena-crear?id=<?php echo $juego[0] ?>">Reseñar</a>
-                    <a class="boton-eliminar" href="eliminar-juego?id=<?php echo $juego[0] ?>">Eliminar</a>
-                </div>
-            <?php endforeach; ?>
+            <div id="subseccion2">
+                <?php foreach ($juegosArray as $juego): ?>
+                    <div class="card" data-nombre="<?php echo $juego[1] ?>">
+                        <img src="../assets/img/juegos/<?php echo $juego[6] ?>.jpg" alt="<?php echo $juego[6] ?>">
+                        <p class="card-titulo"><?php echo $juego[1] ?></p>
+                        <p class="card-duracion"><?php echo $juego[3] ?> horas</p>
+                        <p class="card-plataforma"><?php echo $juego[4] ?></p>
+                        <p class="card-precio"><?php echo $juego[5] ?>€</p>
+                        <a class="boton-reseña" href="resena-crear?id=<?php echo $juego[0] ?>">Reseñar</a>
+                        <a class="boton-eliminar" href="eliminar-juego?id=<?php echo $juego[0] ?>">Eliminar</a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         </div>
     </main>
     <footer>
