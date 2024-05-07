@@ -17,6 +17,7 @@ if (empty($_SESSION['usuario'])) {
     $enlaceSesion = 'logout';
     $claseSesion = 'sign-out';
 }
+
 $etiquetasArrayConv = [];
 foreach ($etiquetasArray as $value) {
     switch ($value) {

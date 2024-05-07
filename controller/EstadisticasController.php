@@ -39,7 +39,11 @@ class EstadisticasController implements Controller
         }
 
         $numeroJuegos = count($juegosArray);
-        include 'views/public/estadisticas.php';
+        if ($numeroJuegos == 0) {//si no hay juegos redirige al catalogo
+            header('Location: catalogo');
+        } else {//si no permite entrar a las estadisticas
+            include 'views/public/estadisticas.php';
+        }
     }
 
     public static function create()
