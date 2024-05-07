@@ -81,11 +81,11 @@ if (empty($_SESSION['usuario'])) {
 </body>
 <script>
     document.getElementById("buscador").addEventListener("input", function () {
-        var input = this.value.trim().toLowerCase();
-        var cards = document.querySelectorAll(".card");
+        let input = this.value.trim().toLowerCase();
+        let cards = document.querySelectorAll(".card");
 
         cards.forEach(function (card) {
-            var nombreJuego = card.dataset.nombre.toLowerCase();
+            let nombreJuego = card.dataset.nombre.toLowerCase();
             if (nombreJuego.includes(input)) {
                 card.style.display = "block";
             } else {

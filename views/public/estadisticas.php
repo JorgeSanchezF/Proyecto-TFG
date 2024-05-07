@@ -1,5 +1,4 @@
 <?php
-
 /*
 Comprobación para cambiar el texto de el enlace de inicio de sesión a el nombre de usuario
 si la sesion esta iniciada*/
@@ -105,7 +104,6 @@ foreach ($etiquetasArray as $value) {
             </div>
             <div class="card-estadisticas">
                 <h3>Generos más jugados</h3>
-                <!-- grafico -->
                 <canvas id="doughnutChart" width="400" height="400"></canvas>
             </div>
         </div>
@@ -121,11 +119,9 @@ foreach ($etiquetasArray as $value) {
                     <p class="card-plataforma"><?php echo $juego[4] ?></p>
                     <p class="card-precio"><?php echo $juego[5] ?>€</p>
                     <a class="boton-eliminar" href="eliminar-juego?id=<?php echo $juego[0] ?>">Eliminar</a>
-                    <!-- cambiar enlace para eliminar de biblioteca -->
                 </div>
             <?php endforeach; ?>
         </div>
-        <!-- crear mas secciones que muestren etiquetas más comunes y plataforma más comun -->
     </main>
     <footer>
         <div class="redes">
@@ -147,11 +143,11 @@ foreach ($etiquetasArray as $value) {
 </html>
 <script>
     document.getElementById("buscador").addEventListener("input", function () {
-        var input = this.value.toLowerCase();
-        var cards = document.querySelectorAll(".card");
+        let input = this.value.toLowerCase();
+        let cards = document.querySelectorAll(".card");
 
         cards.forEach(function (card) {
-            var nombreJuego = card.dataset.nombre.toLowerCase();
+            let nombreJuego = card.dataset.nombre.toLowerCase();
             if (nombreJuego.includes(input)) {
                 card.style.display = "block";
             } else {
@@ -161,22 +157,20 @@ foreach ($etiquetasArray as $value) {
     });
 </script>
 <script>
-    // Convertir el array PHP a JavaScript
-    var etiquetasArrayConv = <?php echo json_encode($etiquetasArrayConv); ?>;
+    //https://www.w3schools.com/PHP/func_json_encode.asp
+    let etiquetasArrayConv = <?php echo json_encode($etiquetasArrayConv); ?>;
 
-    // Conteo de las etiquetas
-    var etiquetasCount = etiquetasArrayConv.reduce(function (acc, val) {
+    //https://www.w3schools.com/jsref/jsref_reduce.asp
+    let etiquetasCount = etiquetasArrayConv.reduce(function (acc, val) {
         acc[val] = (acc[val] || 0) + 1;
         return acc;
     }, {});
 
-    // Configuración de datos para el gráfico
-    var etiquetasLabels = Object.keys(etiquetasCount);
-    var etiquetasData = Object.values(etiquetasCount);
+    let etiquetasLabels = Object.keys(etiquetasCount);
+    let etiquetasData = Object.values(etiquetasCount);
 
-    // Crear el gráfico de doughnut
-    var ctx = document.getElementById('doughnutChart').getContext('2d');
-    var doughnutChart = new Chart(ctx, {
+    let ctx = document.getElementById('doughnutChart').getContext('2d');
+    let doughnutChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
             labels: etiquetasLabels,

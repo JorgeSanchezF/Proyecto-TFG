@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla catálogo</title>
-    <!-- Bootstrap CSS -->
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -16,7 +16,7 @@
             <a href="catalogo-create" class="btn btn-success">Añadir a catálogo</a>
         </div>
 
-        <!-- Buscador -->
+
         <div class="form-group">
             <label for="buscador">Buscar por nombre:</label>
             <input type="text" class="form-control" id="buscador" placeholder="Ingrese el nombre del juego">
@@ -49,14 +49,18 @@
         </table>
     </main>
 
-
     <script>
-        $(document).ready(function () {
-            $("#buscador").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#tablaJuegos tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
+        document.getElementById("buscador").addEventListener("input", function () {
+            let input = this.value.trim().toLowerCase();
+            let rows = document.querySelectorAll("#tablaJuegos tr");
+
+            rows.forEach(function (row) {
+                let nombreJuego = row.cells[0].textContent.trim().toLowerCase();
+                if (nombreJuego.includes(input)) {
+                    row.style.display = "table-row";
+                } else {
+                    row.style.display = "none";
+                }
             });
         });
     </script>
