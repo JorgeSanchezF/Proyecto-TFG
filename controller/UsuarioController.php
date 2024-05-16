@@ -11,6 +11,10 @@ class UsuarioController implements Controller
         $usuarios = $usuario->findAll()->fetchAll();
         include 'views/private/usuario/index.php';
     }
+    public static function perfil()
+    {
+        include 'views/public/perfil/perfil.php';
+    }
 
 
     public static function create()
@@ -53,6 +57,13 @@ class UsuarioController implements Controller
         header('Location: usuario-admin');
     }
 
+    public static function destroySelf()
+    {
+        $id = $_GET['id'];
+        $usuario = new Usuario();
+        $usuarios = $usuario->destroyById($id);
+        header('Location: catalogo');
+    }
 
     public static function destroy()
     {

@@ -85,7 +85,7 @@ foreach ($etiquetasArray as $value) {
         <nav>
             <a class="enlace-menu" href="catalogo">Catálogo</a>
             <a class="enlace-menu" href="estadisticas">Estadísticas</a>
-            <a class="enlace-menu" href="index/reseñas">Reseñas</a>
+            <a class="enlace-menu" href="resenas">Reseñas</a>
             <a class="enlace-menu" href="perfil">Perfil</a>
         </nav>
         <a href=<?php echo $enlaceSesion ?> class=<?php echo $claseSesion ?>><?php echo $textoInicioSesion ?></a>

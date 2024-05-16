@@ -25,10 +25,10 @@ if (empty($_SESSION['usuario'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo</title>
+    <title>Perfil</title>
 
     <link rel="stylesheet" href="../assets/css/general.css">
-    <link rel="stylesheet" href="../assets/css/catalogo.css">
+    <link rel="stylesheet" href="../assets/css/perfil.css">
     <script src="https://kit.fontawesome.com/ff01793a80.js" crossorigin="anonymous"></script>
 </head>
 
@@ -46,19 +46,14 @@ if (empty($_SESSION['usuario'])) {
         <a href=<?php echo $enlaceSesion ?> class=<?php echo $claseSesion ?>><?php echo $textoInicioSesion ?></a>
     </header>
     <main>
-        <input type="text" id="buscador" placeholder="Buscar juego por nombre...">
-        <div id="seccion">
-            <?php foreach ($juegos as $juego): ?>
-                <div class="card" data-nombre="<?php echo $juego[1] ?>">
-                    <img class="imagen-juego" src="../assets/img/juegos/<?php echo $juego[6] ?>.jpg"
-                        alt="<?php echo $juego[6] ?>">
-                    <p class="card-titulo"><?php echo $juego[1] ?></p>
-                    <p class="card-duracion"><?php echo $juego[3] ?> horas</p>
-                    <p class="card-plataforma"><?php echo $juego[4] ?></p>
-                    <p class="card-precio"><?php echo $juego[5] ?>€</p>
-                    <a class="boton-añadir" href="anadir-juego?id=<?php echo $juego[0] ?>">Añadir</a>
-                </div>
-            <?php endforeach; ?>
+        <div id="perfil">
+            <!-- DAR ESTILOS -->
+            <h3 class="contenido" id="apodo">Apodo: <?php echo $_SESSION['usuario']['apodo'] ?></h3>
+            <p class="contenido" id="correo">Correo: <?php echo $_SESSION['usuario']['correo'] ?></p>
+            <a class="contenido" id="boton-modificar" href="">Modificar datos</a>
+            <a class="contenido" id="boton-eliminar"
+                href="usuario-deleteself?id=<?php echo $_SESSION['usuario']['id'] ?>">Eliminar
+                cuenta</a>
         </div>
     </main>
     <footer>
@@ -76,23 +71,6 @@ if (empty($_SESSION['usuario'])) {
         <p>Al crear una cuenta, estás aceptando nuestros <a href="politica-privacidad">términos de servicio</a> y
             nuestra <a href="politica-privacidad">política de privacidad</a>.</p>
     </footer>
-
-
 </body>
-<script>
-    document.getElementById("buscador").addEventListener("input", function () {
-        let input = this.value.trim().toLowerCase();
-        let cards = document.querySelectorAll(".card");
-
-        cards.forEach(function (card) {
-            let nombreJuego = card.dataset.nombre.toLowerCase();
-            if (nombreJuego.includes(input)) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
-        });
-    });
-</script>
 
 </html>

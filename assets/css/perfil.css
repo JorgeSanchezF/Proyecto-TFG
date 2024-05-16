@@ -1,0 +1,50 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+
+#perfil {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: rgb(207, 207, 183);
+    border-radius: 6px;
+    border: 4px solid #1ba098;
+    width: 40%;
+    justify-content: space-evenly;
+}
+
+.contenido {
+    margin-left: 5%;
+    margin-bottom: 2%;
+}
+
+#boton-modificar {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: limegreen;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    width: fit-content;
+}
+
+#boton-modificar:hover {
+    background-color: rgb(42, 170, 42);
+}
+
+#boton-eliminar {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #ff6347;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    width: fit-content;
+}
+
+#boton-eliminar:hover {
+    background-color: #cd2200;
+}
