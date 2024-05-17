@@ -6,15 +6,20 @@ class ResenaController implements Controller
 {
     public static function index()
     {
-        $reseña = new Resena();
-        $reseñas = $reseña->findByUsuarioId($_SESSION['usuario']['id'])->fetchAll();
+        if (isset($_SESSION['usuario'])) {
+            $reseña = new Resena();
+            $reseñas = $reseña->findByUsuarioId($_SESSION['usuario']['id'])->fetchAll();
+            if ($reseñas == null) {
+                header('Location: estadisticas');
+            } else {
 
-        if ($reseñas == null) {
-            header('Location: estadisticas');
+                include 'views/public/resena/resena.php';
+            }
         } else {
-
-            include 'views/public/resena/resena.php';
+            header('Location: catalogo');
         }
+
+
     }
 
     public static function create()

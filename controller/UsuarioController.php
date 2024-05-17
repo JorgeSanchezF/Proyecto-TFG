@@ -13,7 +13,12 @@ class UsuarioController implements Controller
     }
     public static function perfil()
     {
-        include 'views/public/perfil/perfil.php';
+        if (isset($_SESSION['usuario'])) {
+            include 'views/public/perfil/perfil.php';
+        } else {
+            header('Location: catalogo');
+        }
+
     }
 
 
@@ -35,6 +40,14 @@ class UsuarioController implements Controller
         $usuario = new Usuario();
         $usuarios = $usuario->findById($id)->fetch();
         include 'views/private/usuario/edit.php';
+
+    }
+    public static function editSelf($id)
+    {
+        $id = $_GET['id'];
+        $usuario = new Usuario();
+        $usuarios = $usuario->findById($id)->fetch();
+        include 'views/public/perfil/edit.php';
 
     }
 

@@ -27,8 +27,12 @@ main {
 }
 
 .card-estadisticas p {
-    font-size: 16px;
+
     color: white;
+}
+
+.card-titulo {
+    font-size: small;
 }
 
 #seccion2 {
@@ -41,7 +45,7 @@ main {
 #subseccion2 {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
@@ -71,7 +75,7 @@ main {
 }
 
 .card p {
-    font-size: 16px;
+
     color: white;
 }
 
@@ -107,7 +111,7 @@ h3 {
     border-radius: 4px;
     transition: background-color 0.3s ease;
     width: fit-content;
-    margin-bottom: 1%;
+    margin-bottom: 2%;
 }
 
 .boton-reseña:hover {

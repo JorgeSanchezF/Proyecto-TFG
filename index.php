@@ -6,6 +6,8 @@ require_once 'Router.php';
 
 session_start();
 
+
+
 $route = new Router();
 
 $route->get('/', [IndexController::class, 'index'])
@@ -24,13 +26,15 @@ $route->get('/', [IndexController::class, 'index'])
     ->get('/usuario-edit', [UsuarioController::class, 'edit'])
     ->get('/usuario-delete', [UsuarioController::class, 'destroy'])
     ->get('/usuario-deleteself', [UsuarioController::class, 'destroySelf'])
+    ->get('/usuario-editself', [UsuarioController::class, 'editSelf'])
     ->get('/estadisticas', [EstadisticasController::class, 'index'])
     ->get('/eliminar-juego', [EstadisticasController::class, 'destroy'])
-    ->get('/resenas', [EstadisticasController::class, 'index'])
+    ->get('/resenas', [ResenaController::class, 'index'])
+    ->get('/resenas-crear', [ResenaController::class, 'create'])
     ->get('/perfil', [UsuarioController::class, 'perfil'])
     ->post('/catalogo-save', [CatalogoController::class, 'save'])
     ->post('/catalogo-update', [CatalogoController::class, 'update'])
     ->post('/doLogin', [AuthController::class, 'doLogin'])
-    ->post('/doRegister', [AuthController::class, 'doRegister']);
-
+    ->post('/doRegister', [AuthController::class, 'doRegister'])
+    ->post('/usuario-update', [UsuarioController::class, 'update']);
 $route->resolver_ruta($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

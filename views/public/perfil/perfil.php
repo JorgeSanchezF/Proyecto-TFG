@@ -50,7 +50,9 @@ if (empty($_SESSION['usuario'])) {
             <!-- DAR ESTILOS -->
             <h3 class="contenido" id="apodo">Apodo: <?php echo $_SESSION['usuario']['apodo'] ?></h3>
             <p class="contenido" id="correo">Correo: <?php echo $_SESSION['usuario']['correo'] ?></p>
-            <a class="contenido" id="boton-modificar" href="">Modificar datos</a>
+            <a class="contenido" id="boton-modificar"
+                href="usuario-editself?id=<?php echo $_SESSION['usuario']['id'] ?>">Modificar
+                datos</a>
             <a class="contenido" id="boton-eliminar"
                 href="usuario-deleteself?id=<?php echo $_SESSION['usuario']['id'] ?>">Eliminar
                 cuenta</a>

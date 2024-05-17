@@ -7,42 +7,46 @@ class EstadisticasController implements Controller
 {
     public static function index()
     {
-        $usuarioId = $_SESSION['usuario']['id'];
-        $biblioteca = new Biblioteca();
-        $bibliotecaId = $biblioteca->findBibliotecaByUsuario($usuarioId)->fetch();
-        $bibliotecaId = $bibliotecaId[0];
-        $juegosIds = $biblioteca->findJuegosByBiblioteca($bibliotecaId)->fetchAll();
-        $juego = new Juego();
-        $etiqueta = new Etiqueta();
+        if (isset($_SESSION['usuario'])) {
+            $usuarioId = $_SESSION['usuario']['id'];
+            $biblioteca = new Biblioteca();
+            $bibliotecaId = $biblioteca->findBibliotecaByUsuario($usuarioId)->fetch();
+            $bibliotecaId = $bibliotecaId[0];
+            $juegosIds = $biblioteca->findJuegosByBiblioteca($bibliotecaId)->fetchAll();
+            $juego = new Juego();
+            $etiqueta = new Etiqueta();
 
-        $horasTotales = 0;
-        $dineroTotal = 0;
-        $juegosArray = [];
-        $etiquetasArray = [];
+            $horasTotales = 0;
+            $dineroTotal = 0;
+            $juegosArray = [];
+            $etiquetasArray = [];
 
-        foreach ($juegosIds as $key => $value) {//recoge los juegos usando el id encontrado dentro de biblioteca_has_juego
-            $juegos = $juego->findById($value[2])->fetch();
-            $etiquetas = $etiqueta->findByJuegoId($value[2]);
+            foreach ($juegosIds as $key => $value) {//recoge los juegos usando el id encontrado dentro de biblioteca_has_juego
+                $juegos = $juego->findById($value[2])->fetch();
+                $etiquetas = $etiqueta->findByJuegoId($value[2]);
 
-            foreach ($etiquetas as $key => $k) {
+                foreach ($etiquetas as $key => $k) {
 
-                array_push($etiquetasArray, $k[2]);
+                    array_push($etiquetasArray, $k[2]);
+                }
+
+                array_push($juegosArray, $juegos);
+
             }
 
-            array_push($juegosArray, $juegos);
+            foreach ($juegosArray as $key => $value) {//cuenta el numero de horas total y el precio total entre todos los videojuegos en la biblioteca
+                $horasTotales = $horasTotales + $value[3];
+                $dineroTotal = $dineroTotal + $value[5];
+            }
 
-        }
-
-        foreach ($juegosArray as $key => $value) {//cuenta el numero de horas total y el precio total entre todos los videojuegos en la biblioteca
-            $horasTotales = $horasTotales + $value[3];
-            $dineroTotal = $dineroTotal + $value[5];
-        }
-
-        $numeroJuegos = count($juegosArray);
-        if ($numeroJuegos == 0) {//si no hay juegos redirige al catalogo
+            $numeroJuegos = count($juegosArray);
+            if ($numeroJuegos == 0) {//si no hay juegos redirige al catalogo
+                header('Location: catalogo');
+            } else {//si no permite entrar a las estadisticas
+                include 'views/public/estadisticas.php';
+            }
+        } else {
             header('Location: catalogo');
-        } else {//si no permite entrar a las estadisticas
-            include 'views/public/estadisticas.php';
         }
     }
 

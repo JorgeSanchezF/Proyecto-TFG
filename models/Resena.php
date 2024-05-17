@@ -24,7 +24,7 @@ class Resena implements Model
     }
     public function findByUsuarioId($id)
     {
-        $query = "SELECT * FROM reseña WHERE usaurio_id=$id";
+        $query = "SELECT * FROM reseña WHERE usuario_id=$id";
         $db = new Database();
         $db = Database::conectar();
         $result = $db->query($query);
