@@ -30,11 +30,15 @@ $route->get('/', [IndexController::class, 'index'])
     ->get('/estadisticas', [EstadisticasController::class, 'index'])
     ->get('/eliminar-juego', [EstadisticasController::class, 'destroy'])
     ->get('/resenas', [ResenaController::class, 'index'])
-    ->get('/resenas-crear', [ResenaController::class, 'create'])
+    ->get('/resena-crear', [ResenaController::class, 'create'])
+    ->get('/resena-delete', [ResenaController::class, 'destroy'])
+    ->get('/resena-edit', [ResenaController::class, 'edit'])
     ->get('/perfil', [UsuarioController::class, 'perfil'])
     ->post('/catalogo-save', [CatalogoController::class, 'save'])
     ->post('/catalogo-update', [CatalogoController::class, 'update'])
     ->post('/doLogin', [AuthController::class, 'doLogin'])
     ->post('/doRegister', [AuthController::class, 'doRegister'])
-    ->post('/usuario-update', [UsuarioController::class, 'update']);
+    ->post('/usuario-update', [UsuarioController::class, 'update'])
+    ->post('/resena-save', [ResenaController::class, 'save'])
+    ->post('/resena-update', [ResenaController::class, 'update']);
 $route->resolver_ruta($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

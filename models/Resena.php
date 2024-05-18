@@ -44,11 +44,16 @@ class Resena implements Model
 
     public function updateById($id, $datos)
     {
+        $query = "UPDATE reseña SET texto='$datos[0]', puntuacion=$datos[1], duracion=$datos[2]";
+        $db = new Database();
+        $db = Database::conectar();
+        $db->query($query);
+        $db = Database::desconectar();
     }
 
     public function destroyById($id)
     {
-        $query = "DELETE reseña WHERE id=$id";
+        $query = "DELETE FROM reseña WHERE id=$id";
         $db = new Database();
         $db = Database::conectar();
         $db->query($query);
