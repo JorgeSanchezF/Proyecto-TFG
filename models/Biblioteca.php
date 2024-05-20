@@ -13,9 +13,6 @@ class Biblioteca
         return $result;
     }
 
-
-
-
     public function findBibliotecaByUsuario($usuarioId)
     {
 
