@@ -1,9 +1,9 @@
 <?php
-require_once 'Controller.php';
+
 require_once 'models/Biblioteca.php';
 require_once 'models/Juego.php';
 require_once 'models/Etiqueta.php';
-class EstadisticasController implements Controller
+class EstadisticasController
 {
     public static function index()
     {
@@ -50,11 +50,7 @@ class EstadisticasController implements Controller
         }
     }
 
-    public static function create()
-    {
-    }
-
-    public static function save()
+        public static function save()
     {
         $juegoId = $_GET['id'];
         $usuarioId = $_SESSION['usuario']['id'];
@@ -66,15 +62,7 @@ class EstadisticasController implements Controller
         header('Location: catalogo');
     }
 
-    public static function edit($id)
-    {
-    }
-
-    public static function update()
-    {
-    }
-
-    public static function destroy()
+       public static function destroy()
     {
         $idJuego = $_GET['id'];
         $usuarioId = $_SESSION['usuario']['id'];

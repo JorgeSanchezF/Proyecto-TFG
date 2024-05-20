@@ -1,8 +1,7 @@
 <?php
 require_once 'models/Usuario.php';
-require_once 'Controller.php';
 
-class UsuarioController implements Controller
+class UsuarioController
 {
 
     public static function index()
@@ -20,19 +19,6 @@ class UsuarioController implements Controller
         }
 
     }
-
-
-    public static function create()
-    {
-
-    }
-
-
-    public static function save()
-    {
-
-    }
-
 
     public static function edit($id)
     {
@@ -66,7 +52,7 @@ class UsuarioController implements Controller
         ];
 
         $usuario = new Usuario();
-        $usaurios = $usuario->updateById($id, $datos);
+        $usuario->updateById($id, $datos);
         header('Location: usuario-admin');
     }
 
@@ -74,7 +60,7 @@ class UsuarioController implements Controller
     {
         $id = $_GET['id'];
         $usuario = new Usuario();
-        $usuarios = $usuario->destroyById($id);
+        $usuario->destroyById($id);
         header('Location: catalogo');
     }
 
@@ -82,7 +68,7 @@ class UsuarioController implements Controller
     {
         $id = $_GET['id'];
         $usuario = new Usuario();
-        $usuarios = $usuario->destroyById($id);
+        $usuario->destroyById($id);
         header('Location: usuario-admin');
     }
 }
