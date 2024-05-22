@@ -43,6 +43,14 @@ class Biblioteca
         $db = Database::desconectar();
 
     }
+    public function crearBiblioteca($usuario_id)
+    {
+        $query = "INSERT INTO biblioteca (usuario_id) VALUE($usuario_id) ";
+        $db = new Database();
+        $db = Database::conectar();
+        $db->exec($query);
+        $db = Database::desconectar();
+    }
 
     public function destroyJuegoFromBiblioteca($bibliotecaId, $juegoId)
     {

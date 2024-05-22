@@ -1,5 +1,6 @@
 <?php
 require_once 'models/Usuario.php';
+require_once 'models/Biblioteca.php';
 class AuthController
 {
     public static function login()
@@ -50,10 +51,12 @@ class AuthController
     {
         $email = $_POST['email'];
         $apodo = $_POST['apodo'];
+        $usuario = new Usuario();
+        $biblioteca = new Biblioteca();
         $contraseña = password_hash($_POST['password'], PASSWORD_BCRYPT, ['cont' => 4]);
 
 
-        $usuario = new Usuario();
+
         $datos = array(
             $apodo,
             $email,
@@ -62,6 +65,11 @@ class AuthController
 
 
         $usuario->store($datos);
+        $nuevoUsuario = $usuario->maxId()->fetch();
+
+        $usuario_id = $nuevoUsuario[0];
+        $biblioteca->crearBiblioteca($usuario_id);
+
         header('Location: login');
         exit;
     }

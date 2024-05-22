@@ -39,6 +39,17 @@ class Usuario implements Model
         return $result;
     }
 
+    public function maxId()
+    {
+        $query = "SELECT MAX(id) FROM usuario";
+        $db = new Database();
+        $db = Database::conectar();
+
+        $result = $db->query($query);
+
+        $db = Database::desconectar();
+        return $result;
+    }
     public function store($datos)
     {
 
