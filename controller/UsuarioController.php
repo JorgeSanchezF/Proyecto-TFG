@@ -16,7 +16,7 @@ class UsuarioController
         if (isset($_SESSION['usuario'])) {
             include 'views/public/perfil/perfil.php';
         } else {
-            header('Location: catalogo');
+            header('Location: login');
         }
 
     }

@@ -1,5 +1,4 @@
 <?php
-
 require_once 'models/Biblioteca.php';
 require_once 'models/Juego.php';
 require_once 'models/Etiqueta.php';

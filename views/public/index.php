@@ -37,7 +37,7 @@ if (empty($_SESSION['usuario'])) {
 <body>
     <header>
         <div class="logo">
-            <a class="logo" href="../"><img class="logo" src="assets/img/logo.png" alt="Logo"></a>
+            <a class="logo" href=""><img class="logo" src="assets/img/logo.png" alt="Logo"></a>
         </div>
         <nav>
             <a class="enlace-menu" href="index/catalogo">Catálogo</a>
