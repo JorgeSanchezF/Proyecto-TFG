@@ -1,5 +1,6 @@
 <?php
 require_once 'models/Usuario.php';
+require_once 'models/Biblioteca.php';
 
 class UsuarioController
 {
@@ -60,7 +61,9 @@ class UsuarioController
     {
         $id = $_GET['id'];
         $usuario = new Usuario();
+        $biblioteca = new Biblioteca();
         $usuario->destroyById($id);
+        $biblioteca->destroyBiblioteca($id);
         header('Location: catalogo');
     }
 

@@ -60,4 +60,12 @@ class Biblioteca
         $db = Database::conectar();
         $db->exec($query);
     }
+    public function destroyBiblioteca($usuario_id)
+    {
+
+        $query = "DELETE FROM biblioteca WHERE usuario_id=$usuario_id";
+        $db = new Database();
+        $db = Database::conectar();
+        $db->exec($query);
+    }
 }
