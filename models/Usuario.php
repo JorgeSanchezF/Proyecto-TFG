@@ -67,11 +67,19 @@ class Usuario implements Model
 
     public function updateById($id, $datos)
     {
-        $query = "";
+        $query = "UPDATE usuario SET correo='$datos[0]', apodo='$datos[1]',rol_id=$datos[2] WHERE id=$id";
         $db = Database::conectar();
-        $db = exec($query);
+        $result = $db->exec($query);
         $db = Database::desconectar();
     }
+    public function updateSelf($id, $datos)
+    {
+        $query = "UPDATE usuario SET correo='$datos[correo]', apodo='$datos[apodo]',contraseña='$datos[contrasena]' WHERE id=$id";
+        $db = Database::conectar();
+        $result = $db->exec($query);
+        $db = Database::desconectar();
+    }
+
 
     public function destroyById($id)
     {

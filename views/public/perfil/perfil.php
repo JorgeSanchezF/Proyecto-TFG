@@ -48,8 +48,8 @@ if (empty($_SESSION['usuario'])) {
     <main>
         <div id="perfil">
             <!-- DAR ESTILOS -->
-            <h3 class="contenido" id="apodo">Apodo: <?php echo $_SESSION['usuario']['apodo'] ?></h3>
-            <p class="contenido" id="correo">Correo: <?php echo $_SESSION['usuario']['correo'] ?></p>
+            <h3 class="contenido" id="apodo">Apodo: <?php echo $usuarios['apodo'] ?></h3>
+            <p class="contenido" id="correo">Correo: <?php echo $usuarios['correo'] ?></p>
             <a class="contenido" id="boton-modificar"
                 href="usuario-editself?id=<?php echo $_SESSION['usuario']['id'] ?>">Modificar
                 datos</a>

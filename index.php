@@ -39,6 +39,7 @@ $route->get('/', [IndexController::class, 'index'])
     ->post('/doLogin', [AuthController::class, 'doLogin'])
     ->post('/doRegister', [AuthController::class, 'doRegister'])
     ->post('/usuario-update', [UsuarioController::class, 'update'])
+    ->post('/usuario-updateself', [UsuarioController::class, 'updateSelf'])
     ->post('/resena-save', [ResenaController::class, 'save'])
     ->post('/resena-update', [ResenaController::class, 'update']);
 $route->resolver_ruta($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

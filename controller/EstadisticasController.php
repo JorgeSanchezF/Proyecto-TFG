@@ -4,6 +4,11 @@ require_once 'models/Juego.php';
 require_once 'models/Etiqueta.php';
 class EstadisticasController
 {
+    /**
+     * Funcion que dirige hacia la vista de estadisticas
+     * 
+     * @return void
+     */
     public static function index()
     {
         if (isset($_SESSION['usuario'])) {
@@ -49,7 +54,12 @@ class EstadisticasController
         }
     }
 
-        public static function save()
+    /**
+     * Funcion que recoge los datos del juego añadadido y lo guarda en la bd
+     * 
+     * @return void
+     */
+    public static function save()
     {
         $juegoId = $_GET['id'];
         $usuarioId = $_SESSION['usuario']['id'];
@@ -60,8 +70,12 @@ class EstadisticasController
         $biblioteca->store($datos);
         header('Location: catalogo');
     }
-
-       public static function destroy()
+    /**
+     * Funcion que elimina el juego de la biblioteca de un usuario
+     * 
+     * @return void
+     */
+    public static function destroy()
     {
         $idJuego = $_GET['id'];
         $usuarioId = $_SESSION['usuario']['id'];

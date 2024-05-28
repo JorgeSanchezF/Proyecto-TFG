@@ -3,11 +3,20 @@ require_once 'models/Usuario.php';
 require_once 'models/Biblioteca.php';
 class AuthController
 {
+    /**
+     * Funcion que dirige hacia la vista de login
+     * 
+     * @return void
+     */
     public static function login()
     {
         include 'views/public/sesion/login.php';
     }
-
+    /**
+     * Funcion que recoge datos de formulario de login y comprueba los datos con los guardados en la BD para hacer login o redireccionar de vuelta
+     * 
+     * @return void
+     */
     public static function doLogin()
     {
         $email = $_POST['email'];
@@ -41,11 +50,21 @@ class AuthController
             exit;
         }
     }
+    /**
+     * Funcion que dirige hacia la vista de register
+     * 
+     * @return void
+     */
 
     public static function register()
     {
         include 'views/public/sesion/register.php';
     }
+    /**
+     * Funcion que recoge los datos de el formulario de registro y los inserta en la base de datos, despues redirecciona a el catalogo
+     * 
+     * @return void
+     */
 
     public static function doRegister()
     {
@@ -73,11 +92,21 @@ class AuthController
         header('Location: login');
         exit;
     }
+    /**
+     * Funcion que dirige hacia la vista de administrador
+     * 
+     * @return void
+     */
     public static function dashboard()
     {
 
         include 'views/private/dashboard.php';
     }
+    /**
+     * Funcion que cierra la sesion y redirecciona al login
+     * 
+     * @return void
+     */
     public static function logout()
     {
 

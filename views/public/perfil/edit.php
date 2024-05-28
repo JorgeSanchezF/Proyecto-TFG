@@ -15,7 +15,13 @@
             <br>
             <a class="btn btn-secondary" href="perfil">Volver</a>
             <h2 class="mt-5">Formulario de Edición de usuario</h2>
-            <form id="usuario-update-form" class="needs-validation" novalidate>
+            <form action="usuario-updateself" method="POST" id="usuario-update-form" class="needs-validation"
+                novalidate>
+                <div class="form-group">
+                    <input type="hidden" class="form-control" id="id" name="id"
+                        value="<?php echo $_SESSION['usuario']['id'] ?>">
+
+                </div>
                 <div class="form-group">
                     <label for="apodo">Apodo:</label>
                     <input type="text" class="form-control" id="apodo" name="apodo" required

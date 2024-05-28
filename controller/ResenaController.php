@@ -4,6 +4,11 @@ require_once 'models/Resena.php';
 require_once 'models/Juego.php';
 class ResenaController implements Controller
 {
+    /**
+     * Funcion que dirige hacia la vista de reseñas
+     * 
+     * @return void
+     */
     public static function index()
     {
         if (isset($_SESSION['usuario'])) {
@@ -30,12 +35,21 @@ class ResenaController implements Controller
 
 
     }
+    /**
+     * Funcion que dirige hacia la vista de creacion de reseñas
+     * 
+     * @return void
+     */
 
     public static function create()
     {
         include 'views/public/resena/create.php';
     }
-
+    /**
+     * Funcion que recoge los datos del formulario de creacion de reseñas y los guarda en la bd
+     * 
+     * @return void
+     */
     public static function save()
     {
         $texto = $_POST['texto'];
@@ -55,7 +69,12 @@ class ResenaController implements Controller
         $resena->store($datos);
         header('Location: estadisticas');
     }
-
+    /**
+     * Funcion que dirige hacia la vista de edicion de reseñas, recoge los datos de la reseña elegida
+     * para mostrar los valores en el formulario
+     * @param $id
+     * @return void
+     */
     public static function edit($id)
     {
         $id = $_GET['id'];
@@ -63,6 +82,11 @@ class ResenaController implements Controller
         $resenas = $resena->findById($id)->fetch();
         include 'views/public/resena/edit.php';
     }
+    /**
+     * Funcion que recoge los datos del formulario de edicion y guarda los cambios en la bd
+     * 
+     * @return void
+     */
 
     public static function update()
     {
@@ -77,7 +101,11 @@ class ResenaController implements Controller
         $resena->updateById($id, $datos);
         header('Location: resenas');
     }
-
+    /**
+     * Funcion que elimina de la bd la reseña elegida
+     * 
+     * @return void
+     */
     public static function destroy()
     {
         $id = $_GET['id'];

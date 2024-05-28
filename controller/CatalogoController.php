@@ -5,6 +5,11 @@ require_once 'models/Juego_has_etiqueta.php';
 
 class CatalogoController implements Controller
 {
+    /**
+     * Funcion que dirige hacia la vista de catálogo
+     * 
+     * @return void
+     */
     public static function index()
     {
         $juego = new Juego();
@@ -13,6 +18,11 @@ class CatalogoController implements Controller
         include 'views/public/catalogo.php';
     }
 
+    /**
+     * Funcion que dirige hacia la vista de administracion de catalogo
+     * 
+     * @return void
+     */
     public static function catalogoAdmin()
     {
         $juego = new Juego();
@@ -30,6 +40,11 @@ class CatalogoController implements Controller
         }
 
     }
+    /**
+     * Funcion que dirige hacia la vista de detalles de juego
+     * 
+     * @return void
+     */
 
     public static function juegoDetalles()
     {
@@ -43,11 +58,22 @@ class CatalogoController implements Controller
 
         include 'views/private/catalogo/detalles.php';
     }
+    /**
+     * Funcion que dirige hacia la vista de creacion de juegos
+     * 
+     * @return void
+     */
     public static function create()
     {
 
         include 'views/private/catalogo/create.php';
     }
+    /**
+     * Funcion que recoge datos de formulario de creacion de juegos y lo inserta en la BD, despues redirige a seccion de administracion
+     * de catalogo
+     * 
+     * @return void
+     */
 
     public static function save()
     {
@@ -91,6 +117,12 @@ class CatalogoController implements Controller
         header('Location: catalogo-admin');
 
     }
+    /**
+     * Funcion que dirige hacia la vista de edicion de juego, recoge los datos de la bd para mostrar los valores guardados
+     * 
+     * @param $id 
+     * @return void
+     */
 
     public static function edit($id)
     {
@@ -99,6 +131,11 @@ class CatalogoController implements Controller
         $juegos = $juego->findById($id)->fetch();
         include 'views/private/catalogo/edit.php';
     }
+    /**
+     * Funcion que recoge los datos de el formulario de edicion de juegos y guarda los cambios en la bd
+     * 
+     * @return void
+     */
     public static function update()
     {
         $id = $_POST['id'];
@@ -143,6 +180,11 @@ class CatalogoController implements Controller
         header('Location: catalogo-admin');
 
     }
+    /**
+     * Funcion que elimina un juego de la bd y redirige a la seccion de administracion de catalogo
+     * 
+     * @return void
+     */
     public static function destroy()
     {
         $id = $_GET['id'];
