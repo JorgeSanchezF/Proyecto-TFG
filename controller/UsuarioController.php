@@ -122,6 +122,7 @@ class UsuarioController
         $biblioteca = new Biblioteca();
         $usuario->destroyById($id);
         $biblioteca->destroyBiblioteca($id);
+        unset($_SESSION['usuario']);
         header('Location: catalogo');
     }
     /**

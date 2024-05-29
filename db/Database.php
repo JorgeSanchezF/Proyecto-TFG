@@ -20,7 +20,7 @@ class Database
     /**
      * Funcion que cierra la conexion con la bd
      * 
-     * @return void
+     * @return $conexion
      */
     public static function desconectar()
     {
