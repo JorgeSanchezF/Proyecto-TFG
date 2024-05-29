@@ -1,8 +1,12 @@
 <?php
-
 class Database
 {
     private static $conexion;
+    /**
+     * Funcion que realiza conexion con la bd
+     * 
+     * @return $conexion
+     */
 
     public static function conectar()
     {
@@ -13,6 +17,11 @@ class Database
         return self::$conexion;
     }
 
+    /**
+     * Funcion que cierra la conexion con la bd
+     * 
+     * @return void
+     */
     public static function desconectar()
     {
         self::$conexion = null;
