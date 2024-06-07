@@ -53,10 +53,9 @@ class AuthController
     /**
      * Funcion que dirige hacia la vista de register
      * 
-     * @return void
      */
 
-    public static function register()
+    public static function register() : void
     {
         include 'views/public/sesion/register.php';
     }
