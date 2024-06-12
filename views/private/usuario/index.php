@@ -40,7 +40,6 @@
                         }
                         ?></td>
                         <td>
-                            <a href="usuario-edit?id=<?php echo $usuario[0] ?>" class="btn btn-primary btn-sm">Editar</a>
                             <a href="usuario-delete?id=<?php echo $usuario[0] ?>" class=" btn btn-danger
                                 btn-sm">Eliminar</a>
                         </td>
