@@ -39,9 +39,10 @@
             </div>
             <div class="form-group">
                 <label for="duracion">Duración (en horas):</label>
-                <input type="number" class="form-control" id="duracion" name="duracion" min="0" step="1"
+                <input type="number" class="form-control" id="duracion" name="duracion" min="1" max="9999" step="1"
                     value="<?php echo $resenas['duracion'] ?>" required>
-                <div class="invalid-feedback">Por favor, introduce la duración en horas (número entero).</div>
+                <div class="invalid-feedback">Por favor, introduce la duración en horas (número entero), mayor de 1 y
+                    menor de 9999.</div>
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
@@ -55,7 +56,7 @@
 
             let puntuacionValida = puntuacion.value >= 1 && puntuacion.value <= 5;
             let textoValido = texto.value.trim().length <= 999;
-            let duracionValida = Number.isInteger(Number(duracion.value)) && duracion.value >= 0;
+            let duracionValida = duracion.value >= 1 && duracion.value <= 9999;
 
             if (!puntuacionValida) {
                 puntuacion.classList.add('is-invalid');
