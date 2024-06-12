@@ -49,8 +49,8 @@
             let duracion = document.getElementById('duracion');
 
             let puntuacionValida = puntuacion.value >= 1 && puntuacion.value <= 5;
-            let textoValido = texto.value.trim().length <= 999;
-            let duracionValida = Number.isInteger(Number(duracion.value)) && duracion.value >= 0;
+            let textoValido = texto.value.trim().length <= 999 && texto.value.trim().length >= 1;
+            let duracionValida = duracion.value >= 1 && duracion.value <= 9999;
 
             if (!puntuacionValida) {
                 puntuacion.classList.add('is-invalid');
